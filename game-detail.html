@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">游戏详情 - Game8.live</title>
+    <meta name="description" id="page-description" content="在Game8.live体验最热门的在线游戏">
+    <meta name="keywords" id="page-keywords" content="在线游戏,免费游戏,游戏攻略">
+    <meta name="author" content="Game8.live">
+    
+    <link rel="canonical" href="https://game8.live/game-detail.html">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .game-detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .game-header {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            align-items: start;
+        }
+        
+        .game-preview {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .game-preview img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .game-preview .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .game-preview:hover .play-overlay {
+            opacity: 1;
+        }
+        
+        .play-button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .play-button:hover {
+            background: var(--secondary-color);
+            transform: scale(1.05);
+        }
+        
+        .game-info {
+            padding: 20px 0;
+        }
+        
+        .game-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+        
+        .game-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .game-stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .game-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .game-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+        
+        .game-iframe {
+            background: var(--surface-color);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .game-iframe iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 15px;
+        }
+        
+        .game-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .sidebar-section {
+            background: var(--surface-color);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sidebar-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .controls-list, .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .controls-list li, .tips-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        .controls-list li:last-child, .tips-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 30px;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--secondary-color);
+        }
+        
+        .related-games {
+            margin-top: 40px;
+        }
+        
+        .related-games h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .related-card {
+            background: var(--surface-color);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .related-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .related-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .related-card-content {
+            padding: 15px;
+        }
+        
+        .related-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .related-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+        
+        @media (max-width: 768px) {
+            .game-header {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .game-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .game-stats {
+                justify-content: center;
+            }
+            
+            .game-iframe iframe {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Game8.live</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#featured" class="nav-link">热门游戏</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#categories" class="nav-link">游戏分类</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#guides" class="nav-link">游戏攻略</a>
+                </li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="game-detail-container">
+            <a href="index.html" class="back-link">
+                ← 返回首页
+            </a>
+            
+            <div class="game-header">
+                <div class="game-preview">
+                    <img id="game-image" src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop&crop=center" alt="游戏预览">
+                    <div class="play-overlay">
+                        <button class="play-button" onclick="startGame()">立即游戏</button>
+                    </div>
+                </div>
+                
+                <div class="game-info">
+                    <h1 id="game-title" class="game-title">游戏名称</h1>
+                    <p id="game-description" class="game-description">游戏描述</p>
+                    
+                    <div class="game-stats">
+                        <div class="stat-item">
+                            <span id="play-count" class="stat-value">0</span>
+                            <span class="stat-label">游玩次数</span>
+                        </div>
+                        <div class="stat-item">
+                            <span id="likes-count" class="stat-value">0</span>
+                            <span class="stat-label">喜爱度</span>
+                        </div>
+                        <div class="stat-item">
+                            <span id="rating" class="stat-value">0</span>
+                            <span class="stat-label">评分</span>
+                        </div>
+                    </div>
+                    
+                    <div id="game-tags" class="game-tags">
+                        <!-- 标签将通过JavaScript动态生成 -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="game-content">
+                <div class="game-iframe">
+                    <iframe id="game-iframe" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+                
+                <div class="game-sidebar">
+                    <div class="sidebar-section">
+                        <h3>🎮 游戏操作</h3>
+                        <ul id="controls-list" class="controls-list">
+                            <!-- 操作说明将通过JavaScript动态生成 -->
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3>💡 游戏技巧</h3>
+                        <ul id="tips-list" class="tips-list">
+                            <!-- 游戏技巧将通过JavaScript动态生成 -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="related-games">
+                <h2>相关游戏推荐</h2>
+                <div class="related-grid" id="related-games">
+                    <!-- 相关游戏将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Game8.live</h3>
+                    <p>提供最新最热门的在线游戏体验</p>
+                </div>
+                <div class="footer-section">
+                    <h4>游戏分类</h4>
+                    <ul>
+                        <li><a href="index.html#categories">动作游戏</a></li>
+                        <li><a href="index.html#categories">策略游戏</a></li>
+                        <li><a href="index.html#categories">益智游戏</a></li>
+                        <li><a href="index.html#categories">休闲游戏</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>游戏攻略</h4>
+                    <ul>
+                        <li><a href="guides/slither-advanced-guide.html">Slither.io攻略</a></li>
+                        <li><a href="guides/amongus-master-guide.html">Among Us攻略</a></li>
+                        <li><a href="index.html#guides">更多攻略</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">微博</a>
+                        <a href="#" class="social-link">微信</a>
+                        <a href="#" class="social-link">QQ群</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Game8.live. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 新的游戏数据配置 - 20个高质量游戏
+        const gamesData = {
+            // 经典动作游戏
+            slither: {
+                title: 'Slither.io',
+                description: 'Slither.io是一款风靡全球的多人在线贪吃蛇游戏。控制你的蛇吃食物来成长，但要小心不要撞到其他蛇！游戏支持全球玩家同时在线，考验你的反应速度和策略思维。',
+                image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://slither.io/',
+                tags: ['多人', '休闲', '贪吃蛇', '在线游戏'],
+                controls: [
+                    '使用鼠标移动控制蛇的方向',
+                    '点击鼠标加速移动',
+                    '避免撞到其他蛇或墙壁',
+                    '吃掉食物和光点来增长身体'
+                ],
+                tips: [
+                    '开始时保持小体型，寻找落单的玩家',
+                    '利用大蛇的惯性，在它们转弯时进行攻击',
+                    '不要贪心，安全第一',
+                    '观察地图边缘，利用边界保护自己'
+                ],
+                stats: {
+                    playCount: 3200000,
+                    likes: 220000,
+                    rating: 4.5
+                }
+            },
+            agar: {
+                title: 'Agar.io',
+                description: 'Agar.io是一款经典的吞噬类多人在线游戏。控制你的细胞吞噬其他小细胞来成长，但要小心被更大的细胞吞噬。游戏支持全球玩家同时在线对战。',
+                image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://agar.io/',
+                tags: ['多人', '策略', '吞噬', '在线游戏'],
+                controls: [
+                    '使用鼠标移动控制细胞方向',
+                    '点击鼠标分裂细胞',
+                    '按W键喷射质量',
+                    '避免被更大的细胞吞噬'
+                ],
+                tips: [
+                    '开始时保持小体型，寻找食物',
+                    '利用分裂技巧包围小细胞',
+                    '注意观察周围环境，避免危险',
+                    '合理使用喷射功能加速移动'
+                ],
+                stats: {
+                    playCount: 2800000,
+                    likes: 190000,
+                    rating: 4.4
+                }
+            },
+            krunker: {
+                title: 'Krunker.io',
+                description: 'Krunker.io是一款快节奏的在线第一人称射击游戏。在像素风格的战场上与其他玩家展开激烈对战，体验流畅的射击快感。',
+                image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://krunker.io/',
+                tags: ['射击', '动作', '多人', 'FPS'],
+                controls: [
+                    'WASD键移动，鼠标瞄准射击',
+                    '空格键跳跃，Shift键奔跑',
+                    '数字键切换武器',
+                    'R键重新装弹'
+                ],
+                tips: [
+                    '掌握移动和射击的节奏',
+                    '善用地形优势',
+                    '注意弹药管理',
+                    '团队配合获得胜利'
+                ],
+                stats: {
+                    playCount: 2100000,
+                    likes: 150000,
+                    rating: 4.3
+                }
+            },
+            // 益智游戏
+            '2048': {
+                title: '2048',
+                description: '2048是一款经典的数字益智游戏。通过滑动方块来合并相同数字，目标是创造出2048这个数字。游戏简单易上手，但需要策略思维。',
+                image: 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://play2048.co/',
+                tags: ['益智', '数字', '策略', '经典'],
+                controls: [
+                    '使用方向键或WASD控制方块移动',
+                    '相同数字的方块会合并',
+                    '每次移动后会生成新的方块',
+                    '目标是创造出2048方块'
+                ],
+                tips: [
+                    '保持最大的数字在角落',
+                    '不要随意移动，要有策略',
+                    '优先合并较小的数字',
+                    '保持棋盘整洁，避免混乱'
+                ],
+                stats: {
+                    playCount: 1500000,
+                    likes: 95000,
+                    rating: 4.3
+                }
+            },
+            tetris: {
+                title: '俄罗斯方块',
+                description: '俄罗斯方块是经典的方块消除游戏。控制下落的方块，填满整行来消除并获得分数。游戏考验你的反应速度和空间思维能力。',
+                image: 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://tetris.com/play-tetris',
+                tags: ['经典', '益智', '方块', '消除'],
+                controls: [
+                    '使用方向键控制方块移动和旋转',
+                    '下键加速方块下落',
+                    '空格键瞬间下落',
+                    '填满整行即可消除'
+                ],
+                tips: [
+                    '保持游戏区域整洁',
+                    '优先消除底部的行',
+                    '学会使用旋转功能',
+                    '预判方块的最佳位置'
+                ],
+                stats: {
+                    playCount: 2000000,
+                    likes: 140000,
+                    rating: 4.7
+                }
+            },
+            sudoku: {
+                title: '数独',
+                description: '数独是经典的数字逻辑游戏。在9x9的格子中填入数字1-9，使每行、每列和每个3x3宫格都包含1-9的数字。',
+                image: 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://sudoku.com/',
+                tags: ['逻辑', '数字', '推理', '益智'],
+                controls: [
+                    '点击格子选择位置',
+                    '输入数字1-9',
+                    '使用提示功能',
+                    '完成所有格子即可获胜'
+                ],
+                tips: [
+                    '从已知数字最多的行或列开始',
+                    '利用排除法',
+                    '注意每个宫格的限制',
+                    '保持耐心，逐步推理'
+                ],
+                stats: {
+                    playCount: 1200000,
+                    likes: 85000,
+                    rating: 4.2
+                }
+            },
+            minesweeper: {
+                title: '扫雷',
+                description: '扫雷是经典的逻辑推理游戏。通过数字提示找出所有地雷的位置，考验你的逻辑思维和推理能力。',
+                image: 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://minesweeper.online/',
+                tags: ['逻辑', '推理', '经典', '策略'],
+                controls: [
+                    '左键点击翻开格子',
+                    '右键标记地雷',
+                    '双击快速翻开周围格子',
+                    '找出所有地雷即可获胜'
+                ],
+                tips: [
+                    '从数字1开始分析',
+                    '利用数字的相互关系',
+                    '不要盲目猜测',
+                    '保持冷静和耐心'
+                ],
+                stats: {
+                    playCount: 850000,
+                    likes: 62000,
+                    rating: 4.0
+                }
+            },
+            // 经典街机游戏
+            pacman: {
+                title: '吃豆人',
+                description: '吃豆人是经典的街机游戏。控制吃豆人在迷宫中收集豆子，同时躲避幽灵。收集能量豆后可以反击幽灵。',
+                image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://www.google.com/logos/2010/pacman10-i.html',
+                tags: ['经典', '街机', '迷宫', '怀旧'],
+                controls: [
+                    '使用方向键控制吃豆人移动',
+                    '收集迷宫中的豆子',
+                    '躲避红色幽灵',
+                    '收集能量豆后可以吃幽灵'
+                ],
+                tips: [
+                    '记住幽灵的移动模式',
+                    '合理利用能量豆的时间',
+                    '优先收集角落的豆子',
+                    '观察幽灵的颜色变化'
+                ],
+                stats: {
+                    playCount: 1800000,
+                    likes: 120000,
+                    rating: 4.6
+                }
+            },
+            snake: {
+                title: '贪吃蛇',
+                description: '贪吃蛇是经典的手机游戏。控制蛇吃食物来成长，但要小心不要撞到自己的身体或墙壁。游戏简单但充满挑战。',
+                image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://snake.io/',
+                tags: ['经典', '休闲', '贪吃蛇', '简单'],
+                controls: [
+                    '使用方向键控制蛇的移动方向',
+                    '吃到食物后蛇会变长',
+                    '避免撞到自己的身体',
+                    '避免撞到墙壁'
+                ],
+                tips: [
+                    '保持蛇的移动节奏',
+                    '不要贪心，安全第一',
+                    '利用墙壁来转弯',
+                    '预判蛇头的位置'
+                ],
+                stats: {
+                    playCount: 1100000,
+                    likes: 78000,
+                    rating: 4.1
+                }
+            },
+            flappy: {
+                title: 'Flappy Bird',
+                description: 'Flappy Bird是经典的飞行躲避游戏。控制小鸟飞行，避开管道障碍，挑战你的反应速度和手眼协调能力。',
+                image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://flappybird.io/',
+                tags: ['动作', '反应', '飞行', '挑战'],
+                controls: [
+                    '点击屏幕或按空格键让小鸟飞行',
+                    '避开绿色管道',
+                    '尽可能飞得更远',
+                    '挑战最高分数'
+                ],
+                tips: [
+                    '保持稳定的点击节奏',
+                    '不要过度点击',
+                    '观察管道的间距',
+                    '保持冷静，不要急躁'
+                ],
+                stats: {
+                    playCount: 1250000,
+                    likes: 89000,
+                    rating: 4.2
+                }
+            },
+            // 社交游戏
+            amongus: {
+                title: 'Among Us',
+                description: 'Among Us是一款风靡全球的多人社交推理游戏。玩家需要合作完成任务，但其中隐藏着试图破坏任务的冒牌货。考验你的推理能力和演技。',
+                image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://amongus.io/',
+                tags: ['多人', '社交', '推理', '策略'],
+                controls: [
+                    '使用WASD键移动角色',
+                    '点击与物品互动',
+                    '使用紧急按钮召集会议',
+                    '投票淘汰可疑的冒牌货'
+                ],
+                tips: [
+                    '仔细观察其他玩家的行为模式',
+                    '建立可信的不在场证明',
+                    '善用监控摄像头收集证据',
+                    '在会议中有效表达自己的观点'
+                ],
+                stats: {
+                    playCount: 2500000,
+                    likes: 180000,
+                    rating: 4.6
+                }
+            },
+            skribbl: {
+                title: 'Skribbl.io',
+                description: 'Skribbl.io是一款创意十足的在线猜词绘画游戏。玩家轮流绘画，其他人根据画作猜测词语。考验你的绘画技巧和词汇量。',
+                image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://skribbl.io/',
+                tags: ['创意', '社交', '绘画', '猜词'],
+                controls: [
+                    '鼠标绘画，选择不同颜色',
+                    '输入猜测的词语',
+                    '使用聊天功能交流',
+                    '投票选择最佳画作'
+                ],
+                tips: [
+                    '绘画要简洁明了',
+                    '善用颜色和形状表达',
+                    '观察其他玩家的绘画风格',
+                    '保持创意和幽默感'
+                ],
+                stats: {
+                    playCount: 950000,
+                    likes: 67000,
+                    rating: 4.1
+                }
+            },
+            fallguys: {
+                title: 'Fall Guys',
+                description: 'Fall Guys是一款充满欢乐的多人竞技游戏。60名玩家在色彩缤纷的迷你游戏中展开激烈竞争，最后幸存者将获得胜利王冠。',
+                image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://fallguys.io/',
+                tags: ['多人', '竞技', '休闲', '欢乐'],
+                controls: [
+                    '使用WASD键控制角色移动',
+                    '长按Shift键加速奔跑',
+                    '鼠标控制视角方向',
+                    '抓取和拖拽各种道具'
+                ],
+                tips: [
+                    '尽量保持在平台中央位置',
+                    '避开人群密集的区域',
+                    '巧妙利用障碍物阻挡对手',
+                    '保持耐心，等待最佳时机'
+                ],
+                stats: {
+                    playCount: 1800000,
+                    likes: 120000,
+                    rating: 4.4
+                }
+            },
+            // 新增热门游戏
+            wordle: {
+                title: 'Wordle',
+                description: 'Wordle是风靡全球的单词猜谜游戏。在6次机会内猜出5个字母的单词，通过颜色提示来推理正确答案。每天都有新的挑战等待你！',
+                image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://www.nytimes.com/games/wordle/index.html',
+                tags: ['单词', '推理', '益智', '每日挑战'],
+                controls: [
+                    '输入5个字母的单词',
+                    '按回车键提交',
+                    '根据颜色提示调整',
+                    '在6次内猜出正确答案'
+                ],
+                tips: [
+                    '选择包含常见字母的单词开始',
+                    '注意绿色、黄色、灰色的含义',
+                    '利用已确定的字母位置',
+                    '避免重复使用已排除的字母'
+                ],
+                stats: {
+                    playCount: 1600000,
+                    likes: 110000,
+                    rating: 4.4
+                }
+            },
+            // 新增更多游戏
+            chess: {
+                title: '国际象棋',
+                description: '国际象棋是经典的策略棋类游戏。在8x8的棋盘上，使用不同的棋子与对手展开智力对决。考验你的策略思维和预判能力。',
+                image: 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://www.chess.com/play/computer',
+                tags: ['策略', '棋类', '智力', '经典'],
+                controls: [
+                    '点击棋子选择，再点击目标位置移动',
+                    '每种棋子有不同的移动规则',
+                    '将死对方国王即可获胜',
+                    '使用特殊规则如王车易位'
+                ],
+                tips: [
+                    '控制棋盘中心位置',
+                    '保护你的国王',
+                    '发展所有棋子',
+                    '观察对手的威胁'
+                ],
+                stats: {
+                    playCount: 800000,
+                    likes: 65000,
+                    rating: 4.8
+                }
+            },
+            checkers: {
+                title: '跳棋',
+                description: '跳棋是经典的策略棋类游戏。在棋盘上移动棋子，通过跳跃来吃掉对手的棋子。简单易学但充满策略深度。',
+                image: 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://www.247checkers.com/',
+                tags: ['策略', '棋类', '简单', '经典'],
+                controls: [
+                    '点击棋子选择，再点击目标位置移动',
+                    '只能向前移动，不能后退',
+                    '跳跃吃掉对手棋子',
+                    '到达对方底线可升级为王'
+                ],
+                tips: [
+                    '控制棋盘中心',
+                    '保护重要棋子',
+                    '寻找跳跃机会',
+                    '避免被对手包围'
+                ],
+                stats: {
+                    playCount: 600000,
+                    likes: 45000,
+                    rating: 4.3
+                }
+            },
+            connect4: {
+                title: '四子棋',
+                description: '四子棋是经典的策略游戏。在垂直的棋盘上放置棋子，率先连成四个相同颜色棋子的玩家获胜。简单规则，无限策略。',
+                image: 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://www.mathsisfun.com/games/connect4.html',
+                tags: ['策略', '棋类', '简单', '益智'],
+                controls: [
+                    '点击列顶部的箭头放置棋子',
+                    '棋子会落到该列的最底部',
+                    '轮流放置不同颜色的棋子',
+                    '连成四个相同颜色棋子获胜'
+                ],
+                tips: [
+                    '阻止对手连成四个',
+                    '同时创造多个获胜机会',
+                    '控制棋盘中心',
+                    '观察对手的威胁'
+                ],
+                stats: {
+                    playCount: 500000,
+                    likes: 38000,
+                    rating: 4.2
+                }
+            },
+            tictactoe: {
+                title: '井字棋',
+                description: '井字棋是最经典的策略游戏之一。在3x3的棋盘上，率先连成三个相同符号的玩家获胜。简单规则，快速游戏。',
+                image: 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://playtictactoe.org/',
+                tags: ['策略', '简单', '经典', '快速'],
+                controls: [
+                    '点击空格放置你的符号',
+                    '轮流放置X和O',
+                    '连成三个相同符号获胜',
+                    '棋盘填满且无人获胜则为平局'
+                ],
+                tips: [
+                    '优先占据中心位置',
+                    '阻止对手获胜',
+                    '创造多个获胜机会',
+                    '观察对手的下一步'
+                ],
+                stats: {
+                    playCount: 400000,
+                    likes: 30000,
+                    rating: 4.1
+                }
+            },
+            memory: {
+                title: '记忆翻牌',
+                description: '记忆翻牌是经典的记忆训练游戏。翻开卡片找到相同的图案，训练你的记忆力和注意力。简单有趣，适合所有年龄。',
+                image: 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://www.memozor.com/memory-games/for-kids/memory-game',
+                tags: ['记忆', '益智', '训练', '简单'],
+                controls: [
+                    '点击卡片翻开',
+                    '记住卡片的位置和图案',
+                    '找到两张相同的卡片',
+                    '清空所有卡片即可获胜'
+                ],
+                tips: [
+                    '从角落开始记忆',
+                    '记住图案的位置',
+                    '不要急于翻牌',
+                    '保持专注和耐心'
+                ],
+                stats: {
+                    playCount: 350000,
+                    likes: 28000,
+                    rating: 4.0
+                }
+            },
+            solitaire: {
+                title: '纸牌接龙',
+                description: '纸牌接龙是经典的纸牌游戏。按照规则移动纸牌，将所有纸牌按花色和数字顺序排列。考验你的策略思维和耐心。',
+                image: 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://www.solitaire.com/',
+                tags: ['纸牌', '策略', '经典', '单人'],
+                controls: [
+                    '拖拽纸牌到合适位置',
+                    '按红黑交替和数字递减排列',
+                    '将A到K按花色排列到右上角',
+                    '使用左上角的牌堆'
+                ],
+                tips: [
+                    '优先移动A和2',
+                    '保持牌堆的灵活性',
+                    '不要急于使用牌堆',
+                    '观察所有可能的移动'
+                ],
+                stats: {
+                    playCount: 900000,
+                    likes: 72000,
+                    rating: 4.5
+                }
+            },
+            mahjong: {
+                title: '麻将连连看',
+                description: '麻将连连看是经典的消除游戏。找到相同的麻将牌并消除，清空所有牌面即可获胜。考验你的观察力和策略思维。',
+                image: 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://www.mahjonggtime.com/',
+                tags: ['消除', '麻将', '策略', '经典'],
+                controls: [
+                    '点击相同的麻将牌',
+                    '确保两张牌之间有通路',
+                    '消除所有牌面获胜',
+                    '使用提示功能'
+                ],
+                tips: [
+                    '从边缘开始消除',
+                    '优先消除阻挡其他牌的牌',
+                    '观察牌面的整体布局',
+                    '合理使用提示功能'
+                ],
+                stats: {
+                    playCount: 750000,
+                    likes: 58000,
+                    rating: 4.4
+                }
+            },
+            breakout: {
+                title: '打砖块',
+                description: '打砖块是经典的街机游戏。控制挡板反弹小球，击碎所有砖块。简单操作，充满挑战，考验你的反应速度和技巧。',
+                image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center',
+                iframe: 'https://www.breakout-game.com/',
+                tags: ['街机', '动作', '经典', '反应'],
+                controls: [
+                    '使用鼠标或方向键控制挡板',
+                    '挡板反弹小球击碎砖块',
+                    '不要让小球掉落',
+                    '击碎所有砖块获胜'
+                ],
+                tips: [
+                    '控制小球的反弹角度',
+                    '优先击碎特殊砖块',
+                    '保持挡板的稳定移动',
+                    '利用墙壁反弹'
+                ],
+                stats: {
+                    playCount: 650000,
+                    likes: 48000,
+                    rating: 4.3
+                }
+            }
+        };
+
+        // 获取URL参数
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // 格式化数字
+        function formatNumber(num) {
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(1) + 'M';
+            } else if (num >= 1000) {
+                return (num / 1000).toFixed(1) + 'K';
+            }
+            return num.toString();
+        }
+
+        // 加载游戏数据
+        function loadGameData() {
+            const gameId = getUrlParameter('game');
+            if (!gameId || !gamesData[gameId]) {
+                // 如果没有找到游戏，重定向到首页
+                window.location.href = 'index.html';
+                return;
+            }
+
+            const game = gamesData[gameId];
+            
+            // 更新页面标题和meta信息
+            document.getElementById('page-title').textContent = `${game.title} - Game8.live`;
+            document.getElementById('page-description').content = game.description;
+            document.getElementById('page-keywords').content = game.tags.join(', ') + ', 在线游戏, 免费游戏';
+            
+            // 更新页面内容
+            document.getElementById('game-title').textContent = game.title;
+            document.getElementById('game-description').textContent = game.description;
+            document.getElementById('game-image').src = game.image;
+            document.getElementById('game-image').alt = game.title;
+            document.getElementById('game-iframe').src = game.iframe;
+            
+            // 更新统计数据
+            document.getElementById('play-count').textContent = formatNumber(game.stats.playCount);
+            document.getElementById('likes-count').textContent = formatNumber(game.stats.likes);
+            document.getElementById('rating').textContent = game.stats.rating;
+            
+            // 更新标签
+            const tagsContainer = document.getElementById('game-tags');
+            tagsContainer.innerHTML = '';
+            game.tags.forEach(tag => {
+                const tagElement = document.createElement('span');
+                tagElement.className = 'tag';
+                tagElement.textContent = tag;
+                tagsContainer.appendChild(tagElement);
+            });
+            
+            // 更新操作说明
+            const controlsList = document.getElementById('controls-list');
+            controlsList.innerHTML = '';
+            game.controls.forEach(control => {
+                const li = document.createElement('li');
+                li.textContent = control;
+                controlsList.appendChild(li);
+            });
+            
+            // 更新游戏技巧
+            const tipsList = document.getElementById('tips-list');
+            tipsList.innerHTML = '';
+            game.tips.forEach(tip => {
+                const li = document.createElement('li');
+                li.textContent = tip;
+                tipsList.appendChild(li);
+            });
+            
+            // 生成相关游戏推荐
+            generateRelatedGames(gameId);
+        }
+
+        // 生成相关游戏推荐
+        function generateRelatedGames(currentGameId) {
+            const currentGame = gamesData[currentGameId];
+            const relatedGames = [];
+            
+            // 找到同类型的游戏
+            Object.keys(gamesData).forEach(gameId => {
+                if (gameId !== currentGameId) {
+                    const game = gamesData[gameId];
+                    const commonTags = game.tags.filter(tag => currentGame.tags.includes(tag));
+                    if (commonTags.length > 0) {
+                        relatedGames.push({ id: gameId, game: game, score: commonTags.length });
+                    }
+                }
+            });
+            
+            // 按相关性排序并取前4个
+            relatedGames.sort((a, b) => b.score - a.score);
+            const topRelated = relatedGames.slice(0, 4);
+            
+            const relatedContainer = document.getElementById('related-games');
+            relatedContainer.innerHTML = '';
+            
+            topRelated.forEach(({ id, game }) => {
+                const card = document.createElement('div');
+                card.className = 'related-card';
+                card.innerHTML = `
+                    <img src="${game.image}" alt="${game.title}">
+                    <div class="related-card-content">
+                        <h4>${game.title}</h4>
+                        <p>${game.description.substring(0, 80)}...</p>
+                    </div>
+                `;
+                card.addEventListener('click', () => {
+                    window.location.href = `game-detail.html?game=${id}`;
+                });
+                relatedContainer.appendChild(card);
+            });
+        }
+
+        // 开始游戏
+        function startGame() {
+            const iframe = document.getElementById('game-iframe');
+            iframe.style.display = 'block';
+            iframe.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 从后台管理系统加载游戏数据
+            loadGamesFromAdmin();
+            
+            loadGameData();
+            
+            // 导航栏切换
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+        });
+        
+        // 从后台管理系统加载游戏数据
+        function loadGamesFromAdmin() {
+            const adminData = localStorage.getItem('adminGamesData');
+            if (adminData) {
+                try {
+                    const adminGames = JSON.parse(adminData);
+                    // 合并后台管理的数据到现有游戏数据
+                    Object.keys(adminGames).forEach(gameId => {
+                        if (adminGames[gameId]) {
+                            gamesData[gameId] = adminGames[gameId];
+                        }
+                    });
+                    console.log('已从后台管理系统加载游戏数据');
+                } catch (error) {
+                    console.error('加载后台游戏数据失败:', error);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

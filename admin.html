@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏管理后台 - Game8.live</title>
+    <meta name="description" content="Game8.live 游戏管理后台系统">
+    <meta name="author" content="Game8.live">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .admin-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .admin-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .admin-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .admin-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .admin-nav {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .nav-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-btn.active {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+        }
+        
+        .admin-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .admin-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .panel-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .form-array {
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            padding: 15px;
+            background: #f8f9fa;
+        }
+        
+        .array-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .array-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .array-input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+        
+        .array-btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .array-btn:hover {
+            background: #ee5a24;
+        }
+        
+        .add-array-btn {
+            background: #4ecdc4;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .add-array-btn:hover {
+            background: #45b7d1;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .games-list {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .game-item {
+            background: #f8f9fa;
+            border: 2px solid #e1e5e9;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .game-item:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .game-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .game-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .game-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .action-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .edit-btn {
+            background: #4ecdc4;
+            color: white;
+        }
+        
+        .edit-btn:hover {
+            background: #45b7d1;
+        }
+        
+        .delete-btn {
+            background: #ff6b6b;
+            color: white;
+        }
+        
+        .delete-btn:hover {
+            background: #ee5a24;
+        }
+        
+        .game-info {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .game-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .admin-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .admin-nav {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <a href="index.html" class="back-link">
+            ← 返回首页
+        </a>
+        
+        <div class="admin-header">
+            <h1 class="admin-title">
+                🎮 游戏管理后台
+            </h1>
+            <p class="admin-subtitle">管理 Game8.live 的所有游戏内容和数据</p>
+            
+            <div class="admin-nav">
+                <button class="nav-btn active" onclick="showPanel('add')">添加游戏</button>
+                <button class="nav-btn" onclick="showPanel('manage')">管理游戏</button>
+                <button class="nav-btn" onclick="showPanel('stats')">数据统计</button>
+                <button class="nav-btn" onclick="showPanel('users')">用户管理</button>
+            </div>
+        </div>
+        
+        <div class="admin-content">
+            <!-- 添加游戏面板 -->
+            <div id="add-panel" class="admin-panel">
+                <h2 class="panel-title">➕ 添加新游戏</h2>
+                
+                <div id="message-container"></div>
+                
+                <form id="game-form">
+                    <div class="form-group">
+                        <label class="form-label">游戏ID *</label>
+                        <input type="text" id="game-id" class="form-input" placeholder="例如: newgame" required>
+                        <small style="color: #666; font-size: 0.9rem;">用于URL和内部标识，只能包含字母、数字和下划线</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">游戏名称 *</label>
+                        <input type="text" id="game-title" class="form-input" placeholder="例如: 新游戏" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">游戏描述 *</label>
+                        <textarea id="game-description" class="form-textarea" placeholder="详细描述游戏玩法和特色..." required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">游戏分类 *</label>
+                            <select id="game-category" class="form-select" required>
+                                <option value="">选择分类</option>
+                                <option value="action">动作游戏</option>
+                                <option value="strategy">策略游戏</option>
+                                <option value="puzzle">益智游戏</option>
+                                <option value="racing">竞速游戏</option>
+                                <option value="sports">体育游戏</option>
+                                <option value="social">社交游戏</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">游戏图片URL *</label>
+                            <input type="url" id="game-image" class="form-input" placeholder="https://images.unsplash.com/..." required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">游戏链接 *</label>
+                        <input type="url" id="game-iframe" class="form-input" placeholder="https://example.com/game" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">游戏标签</label>
+                        <div class="form-array" id="tags-container">
+                            <div class="array-item">
+                                <input type="text" class="array-input" placeholder="标签1">
+                                <button type="button" class="array-btn" onclick="removeArrayItem(this)">删除</button>
+                            </div>
+                        </div>
+                        <button type="button" class="add-array-btn" onclick="addArrayItem('tags-container', '标签')">添加标签</button>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">操作说明</label>
+                        <div class="form-array" id="controls-container">
+                            <div class="array-item">
+                                <input type="text" class="array-input" placeholder="操作说明1">
+                                <button type="button" class="array-btn" onclick="removeArrayItem(this)">删除</button>
+                            </div>
+                        </div>
+                        <button type="button" class="add-array-btn" onclick="addArrayItem('controls-container', '操作说明')">添加操作说明</button>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">游戏技巧</label>
+                        <div class="form-array" id="tips-container">
+                            <div class="array-item">
+                                <input type="text" class="array-input" placeholder="游戏技巧1">
+                                <button type="button" class="array-btn" onclick="removeArrayItem(this)">删除</button>
+                            </div>
+                        </div>
+                        <button type="button" class="add-array-btn" onclick="addArrayItem('tips-container', '游戏技巧')">添加游戏技巧</button>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">游玩次数</label>
+                            <input type="number" id="play-count" class="form-input" placeholder="100000" min="0">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">喜爱度</label>
+                            <input type="number" id="likes" class="form-input" placeholder="5000" min="0">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">评分 (1-5)</label>
+                            <input type="number" id="rating" class="form-input" placeholder="4.5" min="1" max="5" step="0.1">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">添加游戏</button>
+                </form>
+            </div>
+            
+            <!-- 管理游戏面板 -->
+            <div id="manage-panel" class="admin-panel" style="display: none;">
+                <h2 class="panel-title">📋 游戏列表管理</h2>
+                <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px;">
+                    <input type="text" id="game-search" class="form-input" placeholder="搜索游戏名称、ID或标签..." style="flex: 1;">
+                    <div style="white-space: nowrap; color: #666;">
+                        <span>总数：</span><strong id="count-total">0</strong>
+                        <span style="margin: 0 8px;">|</span>
+                        <span>匹配：</span><strong id="count-filtered">0</strong>
+                    </div>
+                </div>
+                <div class="games-list" id="games-list">
+                    <!-- 游戏列表将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <!-- 数据统计面板 -->
+            <div id="stats-panel" class="admin-panel" style="display: none;">
+                <h2 class="panel-title">📊 数据统计</h2>
+                
+                <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 15px; text-align: center;">
+                        <h3 style="font-size: 2rem; margin-bottom: 10px;" id="total-games">0</h3>
+                        <p>总游戏数</p>
+                    </div>
+                    
+                    <div class="stat-card" style="background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%); color: white; padding: 20px; border-radius: 15px; text-align: center;">
+                        <h3 style="font-size: 2rem; margin-bottom: 10px;" id="total-plays">0</h3>
+                        <p>总游玩次数</p>
+                    </div>
+                    
+                    <div class="stat-card" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); color: white; padding: 20px; border-radius: 15px; text-align: center;">
+                        <h3 style="font-size: 2rem; margin-bottom: 10px;" id="total-likes">0</h3>
+                        <p>总喜爱度</p>
+                    </div>
+                    
+                    <div class="stat-card" style="background: linear-gradient(135deg, #96ceb4 0%, #feca57 100%); color: white; padding: 20px; border-radius: 15px; text-align: center;">
+                        <h3 style="font-size: 2rem; margin-bottom: 10px;" id="avg-rating">0</h3>
+                        <p>平均评分</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <h3 style="margin-bottom: 15px;">分类统计</h3>
+                    <div id="category-stats" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+                        <!-- 分类统计将通过JavaScript动态生成 -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 用户管理面板 -->
+            <div id="users-panel" class="admin-panel" style="display: none;">
+                <h2 class="panel-title">👥 用户管理</h2>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <!-- 添加用户表单 -->
+                    <div>
+                        <h3 style="margin-bottom: 20px; color: #333;">添加新管理员</h3>
+                        
+                        <div id="user-message-container"></div>
+                        
+                        <form id="user-form">
+                            <div class="form-group">
+                                <label class="form-label">用户名 *</label>
+                                <input type="text" id="new-username" class="form-input" placeholder="请输入用户名" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">密码 *</label>
+                                <input type="password" id="new-password" class="form-input" placeholder="请输入密码" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">确认密码 *</label>
+                                <input type="password" id="confirm-password" class="form-input" placeholder="请再次输入密码" required>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">添加管理员</button>
+                        </form>
+                    </div>
+                    
+                    <!-- 用户列表 -->
+                    <div>
+                        <h3 style="margin-bottom: 20px; color: #333;">管理员列表</h3>
+                        
+                        <div class="games-list" id="users-list" style="max-height: 400px;">
+                            <!-- 用户列表将通过JavaScript动态生成 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 游戏数据管理
+        let gamesData = {};
+        // 当前编辑中的游戏ID，null 表示添加模式
+        let currentEditingId = null;
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查登录状态
+            if (!checkLoginStatus()) {
+                window.location.href = 'admin-login.html';
+                return;
+            }
+            
+            loadGamesData();
+            loadGamesList();
+            initGameSearch();
+            updateStats();
+            
+            // 表单提交事件
+            document.getElementById('game-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                addGame();
+            });
+            
+            // 用户表单提交事件
+            document.getElementById('user-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                addUser();
+            });
+            
+            // 添加登出功能
+            addLogoutButton();
+        });
+
+        // 初始化搜索（带防抖）
+        function initGameSearch() {
+            const input = document.getElementById('game-search');
+            if (!input) return;
+            let timer = null;
+            const handler = () => {
+                const q = input.value || '';
+                loadGamesList(q);
+            };
+            input.addEventListener('input', () => {
+                clearTimeout(timer);
+                timer = setTimeout(handler, 200);
+            });
+        }
+        
+        // 检查登录状态
+        function checkLoginStatus() {
+            const loginData = localStorage.getItem('adminLoginData');
+            if (!loginData) {
+                return false;
+            }
+            
+            try {
+                const data = JSON.parse(loginData);
+                if (!data.isLoggedIn || data.expires <= Date.now()) {
+                    // 登录已过期或无效
+                    localStorage.removeItem('adminLoginData');
+                    return false;
+                }
+                return true;
+            } catch (error) {
+                localStorage.removeItem('adminLoginData');
+                return false;
+            }
+        }
+        
+        // 添加登出按钮
+        function addLogoutButton() {
+            const adminNav = document.querySelector('.admin-nav');
+            const logoutBtn = document.createElement('button');
+            logoutBtn.className = 'nav-btn';
+            logoutBtn.style.background = 'linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%)';
+            logoutBtn.innerHTML = '🚪 登出';
+            logoutBtn.onclick = function() {
+                if (confirm('确定要登出吗？')) {
+                    localStorage.removeItem('adminLoginData');
+                    window.location.href = 'admin-login.html';
+                }
+            };
+            adminNav.appendChild(logoutBtn);
+        }
+        
+        // 加载游戏数据
+        function loadGamesData() {
+            // 定义2025默认游戏数据
+            const defaultGames2025 = {
+                    smashkarts: {
+                        title: 'Smash Karts',
+                        description: '多人实时卡丁车对战，拾取道具并击败对手，凭技巧与运气称王。',
+                        category: 'action',
+                        image: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?w=400&h=300&fit=crop&crop=center',
+                        iframe: 'https://smashkarts.io/',
+                        tags: ['多人', '道具', '对战'],
+                        controls: ['WASD驾驶，空格漂移，鼠标使用道具'],
+                        tips: ['弯道前预漂移', '道具留给关键位', '贴内线走位'],
+                        stats: { playCount: 520000, likes: 46000, rating: 4.4 }
+                    },
+                    diep: {
+                        title: 'Diep.io',
+                        description: '进化你的战车，刷怪与对战兼具的坦克射击。',
+                        category: 'action',
+                        image: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=400&h=300&fit=crop&crop=center',
+                        iframe: 'https://diep.io/',
+                        tags: ['射击', '进化', '对战'],
+                        controls: ['WASD移动，鼠标射击，E升级'],
+                        tips: ['先堆生存与输出', '中期选好分支', '留意高分玩家'],
+                        stats: { playCount: 780000, likes: 69000, rating: 4.3 }
+                    },
+                    starblast: {
+                        title: 'Starblast.io',
+                        description: '太空采矿与舰船战斗，升级飞船并参与阵营战争。',
+                        category: 'strategy',
+                        image: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=400&h=300&fit=crop&crop=center',
+                        iframe: 'https://starblast.io/',
+                        tags: ['太空', '采矿', '战斗'],
+                        controls: ['WASD/方向键飞行，鼠标射击'],
+                        tips: ['前期采矿稳健升级', '抱团作战收益高', '追击别越界'],
+                        stats: { playCount: 430000, likes: 36000, rating: 4.2 }
+                    },
+                    mope: {
+                        title: 'Mope.io',
+                        description: '从小生物进化到顶级捕食者，食物链上的生存之战。',
+                        category: 'adventure',
+                        image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=400&h=300&fit=crop&crop=center',
+                        iframe: 'https://mope.io/',
+                        tags: ['进化', '生存', '沙盒'],
+                        controls: ['鼠标移动，点击冲刺'],
+                        tips: ['同色安全，不同色谨慎', '利用地形', '合理进化路线'],
+                        stats: { playCount: 390000, likes: 31000, rating: 4.1 }
+                    },
+                    taming: {
+                        title: 'Taming.io',
+                        description: '驯服宠物、建造与生存的像素风沙盒对战。',
+                        category: 'strategy',
+                        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop&crop=center',
+                        iframe: 'https://taming.io/',
+                        tags: ['沙盒', '建造', '宠物'],
+                        controls: ['WASD移动，鼠标操作，数字键切换'],
+                        tips: ['先采集建防御', '捕捉克制系宠物', '结盟效率高'],
+                        stats: { playCount: 270000, likes: 22000, rating: 4.0 }
+                    },
+                    lolshot: {
+                        title: 'LOLShot.io',
+                        description: '快节奏卡通FPS，多模式对战与流畅手感。',
+                        category: 'action',
+                        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop&crop=center',
+                        iframe: 'https://lolshot.io/',
+                        tags: ['FPS', '多人', '快节奏'],
+                        controls: ['WASD移动，鼠标射击，R装弹'],
+                        tips: ['学会侧身峰值射击', '控点比盲冲更重要', '善用跳台'],
+                        stats: { playCount: 310000, likes: 25000, rating: 4.1 }
+                    },
+                    hexar: {
+                        title: 'Hexar.io',
+                        description: '六边形领地争夺，围线封区并扩大势力范围。',
+                        category: 'strategy',
+                        image: 'https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=400&h=300&fit=crop&crop=center',
+                        iframe: 'https://hexar.io/',
+                        tags: ['领地', '围线', '对战'],
+                        controls: ['鼠标/触控移动'],
+                        tips: ['小圈快封口', '卡对手回线', '优先稳安全边'],
+                        stats: { playCount: 260000, likes: 21000, rating: 4.0 }
+                    },
+                    powerline: {
+                        title: 'Powerline.io',
+                        description: '霓虹贪吃蛇对战，加速与卡位的高能博弈。',
+                        category: 'action',
+                        image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop&crop=center',
+                        iframe: 'https://powerline.io/',
+                        tags: ['贪吃蛇', '对战', '街机'],
+                        controls: ['方向键/WASD移动'],
+                        tips: ['边线卡位', '加速诱敌', '稳健吃残骸'],
+                        stats: { playCount: 300000, likes: 24000, rating: 4.1 }
+                    },
+                    evio: {
+                        title: 'ev.io',
+                        description: '科幻风浏览器FPS，轻量流畅的竞技体验。',
+                        category: 'action',
+                        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop&crop=center',
+                        iframe: 'https://ev.io/',
+                        tags: ['FPS', '科幻', '竞技'],
+                        controls: ['WASD移动，鼠标射击，空格跳跃'],
+                        tips: ['利用跳板抄近路', '远近枪械切换', '控高点优势'],
+                        stats: { playCount: 410000, likes: 35000, rating: 4.2 }
+                    },
+                    smasharena: {
+                        title: 'Smash Arena',
+                        description: '上帝视角的竞技混战，拾取武器与技能快速决斗。',
+                        category: 'action',
+                        image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop&crop=center',
+                        iframe: 'https://smasharena.io/',
+                        tags: ['多人', '竞技', '道具'],
+                        controls: ['WASD移动，鼠标瞄准/施放'],
+                        tips: ['先活再刚', '观察圈边刷新', '技能连段致胜'],
+                        stats: { playCount: 180000, likes: 15000, rating: 4.0 }
+                    }
+            };
+
+            // 从localStorage加载数据，如果没有或过少则使用默认数据
+            const savedData = localStorage.getItem('adminGamesData');
+            if (savedData) {
+                try {
+                    const parsed = JSON.parse(savedData);
+                    const count = parsed && typeof parsed === 'object' ? Object.keys(parsed).length : 0;
+                    if (count >= 10) {
+                        gamesData = parsed;
+                    } else {
+                        gamesData = defaultGames2025;
+                        saveGamesData();
+                    }
+                } catch (e) {
+                    gamesData = defaultGames2025;
+                    saveGamesData();
+                }
+            } else {
+                gamesData = defaultGames2025;
+                saveGamesData();
+            }
+        }
+        
+        // 保存游戏数据
+        function saveGamesData() {
+            localStorage.setItem('adminGamesData', JSON.stringify(gamesData));
+        }
+        
+        // 显示面板
+        function showPanel(panelName) {
+            // 隐藏所有面板
+            document.querySelectorAll('.admin-panel').forEach(panel => {
+                panel.style.display = 'none';
+            });
+            
+            // 移除所有按钮的active类
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // 显示选中的面板
+            document.getElementById(panelName + '-panel').style.display = 'block';
+            
+            // 添加active类到对应按钮
+            event.target.classList.add('active');
+            
+            // 如果是管理面板，重新加载游戏列表
+            if (panelName === 'manage') {
+                loadGamesList();
+            }
+            
+            // 如果是统计面板，更新统计数据
+            if (panelName === 'stats') {
+                updateStats();
+            }
+            
+            // 如果是用户管理面板，加载用户列表
+            if (panelName === 'users') {
+                loadUsersList();
+            }
+
+            // 若进入添加面板且非从编辑按钮触发，退出编辑模式（保留表单内容）
+            if (panelName === 'add') {
+                try {
+                    const trigger = event && event.target;
+                    if (!trigger || !trigger.classList || !trigger.classList.contains('edit-btn')) {
+                        exitEditMode(false);
+                    }
+                } catch (_) {
+                    exitEditMode(false);
+                }
+            }
+        }
+
+        // 进入编辑模式
+        function enterEditMode(gameId) {
+            currentEditingId = gameId;
+            const submitBtn = document.querySelector('#game-form .submit-btn');
+            if (submitBtn) submitBtn.textContent = '保存修改';
+        }
+
+        // 退出编辑模式
+        function exitEditMode(clearForm = true) {
+            currentEditingId = null;
+            const submitBtn = document.querySelector('#game-form .submit-btn');
+            if (submitBtn) submitBtn.textContent = '添加游戏';
+            if (clearForm) {
+                document.getElementById('game-form').reset();
+                resetArrayContainer('tags-container');
+                resetArrayContainer('controls-container');
+                resetArrayContainer('tips-container');
+            }
+        }
+        
+        // 添加或保存游戏
+        function addGame() {
+            const gameId = document.getElementById('game-id').value.trim();
+            const title = document.getElementById('game-title').value.trim();
+            const description = document.getElementById('game-description').value.trim();
+            const category = document.getElementById('game-category').value;
+            const image = document.getElementById('game-image').value.trim();
+            const iframe = document.getElementById('game-iframe').value.trim();
+            
+            // 验证必填字段
+            if (!gameId || !title || !description || !category || !image || !iframe) {
+                showMessage('请填写所有必填字段', 'error');
+                return;
+            }
+            
+            // 验证游戏ID格式
+            if (!/^[a-zA-Z0-9_]+$/.test(gameId)) {
+                showMessage('游戏ID只能包含字母、数字和下划线', 'error');
+                return;
+            }
+            
+            // 新建/编辑校验
+            if (currentEditingId === null) {
+                if (gamesData[gameId]) {
+                    showMessage('游戏ID已存在，请使用其他ID', 'error');
+                    return;
+                }
+            } else {
+                if (gameId !== currentEditingId && gamesData[gameId]) {
+                    showMessage('新的游戏ID已存在，请更换ID或保持不变', 'error');
+                    return;
+                }
+            }
+            
+            // 收集数组数据
+            const tags = getArrayData('tags-container');
+            const controls = getArrayData('controls-container');
+            const tips = getArrayData('tips-container');
+            
+            // 获取统计数据
+            const playCount = parseInt(document.getElementById('play-count').value) || 0;
+            const likes = parseInt(document.getElementById('likes').value) || 0;
+            const rating = parseFloat(document.getElementById('rating').value) || 4.0;
+            
+            // 创建游戏对象
+            const newGame = {
+                title: title,
+                description: description,
+                category: category,
+                image: image,
+                iframe: iframe,
+                tags: tags,
+                controls: controls,
+                tips: tips,
+                stats: {
+                    playCount: playCount,
+                    likes: likes,
+                    rating: rating
+                }
+            };
+            
+            // 写入到游戏数据
+            if (currentEditingId === null) {
+                gamesData[gameId] = newGame;
+            } else {
+                if (gameId !== currentEditingId) {
+                    delete gamesData[currentEditingId];
+                }
+                gamesData[gameId] = newGame;
+            }
+            saveGamesData();
+            
+            // 显示成功消息
+            showMessage(currentEditingId === null ? '游戏添加成功！' : '保存修改成功！', 'success');
+            
+            // 清空表单并退出编辑模式
+            document.getElementById('game-form').reset();
+            exitEditMode();
+            
+            // 重置数组容器
+            resetArrayContainer('tags-container');
+            resetArrayContainer('controls-container');
+            resetArrayContainer('tips-container');
+            loadGamesList();
+        }
+        
+        // 获取数组数据
+        function getArrayData(containerId) {
+            const container = document.getElementById(containerId);
+            const inputs = container.querySelectorAll('.array-input');
+            const data = [];
+            
+            inputs.forEach(input => {
+                const value = input.value.trim();
+                if (value) {
+                    data.push(value);
+                }
+            });
+            
+            return data;
+        }
+        
+        // 添加数组项
+        function addArrayItem(containerId, placeholder) {
+            const container = document.getElementById(containerId);
+            const newItem = document.createElement('div');
+            newItem.className = 'array-item';
+            newItem.innerHTML = `
+                <input type="text" class="array-input" placeholder="${placeholder}">
+                <button type="button" class="array-btn" onclick="removeArrayItem(this)">删除</button>
+            `;
+            container.appendChild(newItem);
+        }
+        
+        // 删除数组项
+        function removeArrayItem(button) {
+            const container = button.parentElement.parentElement;
+            const items = container.querySelectorAll('.array-item');
+            
+            // 至少保留一个项目
+            if (items.length > 1) {
+                button.parentElement.remove();
+            }
+        }
+        
+        // 重置数组容器
+        function resetArrayContainer(containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = `
+                <div class="array-item">
+                    <input type="text" class="array-input" placeholder="标签1">
+                    <button type="button" class="array-btn" onclick="removeArrayItem(this)">删除</button>
+                </div>
+            `;
+        }
+        
+        // 显示消息
+        function showMessage(message, type) {
+            const container = document.getElementById('message-container');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = type === 'success' ? 'success-message' : 'error-message';
+            messageDiv.textContent = message;
+            
+            container.innerHTML = '';
+            container.appendChild(messageDiv);
+            
+            // 3秒后自动隐藏
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 3000);
+        }
+        
+        // 加载游戏列表
+        function loadGamesList(filter = '') {
+            const container = document.getElementById('games-list');
+            const totalEl = document.getElementById('count-total');
+            const filteredEl = document.getElementById('count-filtered');
+            container.innerHTML = '';
+
+            const allIds = Object.keys(gamesData);
+            const norm = (s) => (s || '').toString().toLowerCase();
+            const q = norm(filter);
+            const filteredIds = allIds.filter(id => {
+                if (!q) return true;
+                const g = gamesData[id];
+                return (
+                    norm(id).includes(q) ||
+                    norm(g.title).includes(q) ||
+                    norm(g.category).includes(q) ||
+                    (g.tags || []).some(t => norm(t).includes(q))
+                );
+            });
+
+            filteredIds.forEach(gameId => {
+                const game = gamesData[gameId];
+                const gameItem = document.createElement('div');
+                gameItem.className = 'game-item';
+                gameItem.style.display = 'grid';
+                gameItem.style.gridTemplateColumns = '120px 1fr auto';
+                gameItem.style.gap = '15px';
+
+                const thumb = document.createElement('div');
+                thumb.style.width = '120px';
+                thumb.style.height = '80px';
+                thumb.style.overflow = 'hidden';
+                thumb.style.borderRadius = '10px';
+                thumb.innerHTML = `<img src="${game.image || ''}" alt="${game.title}" style="width:100%;height:100%;object-fit:cover;">`;
+
+                const info = document.createElement('div');
+                info.innerHTML = `
+                    <div class="game-header" style="margin-bottom: 6px;">
+                        <h3 class="game-title" style="margin:0;">${game.title}</h3>
+                    </div>
+                    <div class="game-info">
+                        <p><strong>ID:</strong> ${gameId}　<strong>分类:</strong> ${game.category}</p>
+                        <p style="margin-top:4px;color:#666;">${game.description.substring(0, 120)}${game.description.length > 120 ? '...' : ''}</p>
+                        <div class="game-stats" style="margin-top:8px;">
+                            <div class="stat-item"><span>🎮</span><span>${formatNumber(game.stats.playCount)}次</span></div>
+                            <div class="stat-item"><span>❤️</span><span>${formatNumber(game.stats.likes)}</span></div>
+                            <div class="stat-item"><span>⭐</span><span>${game.stats.rating}</span></div>
+                        </div>
+                    </div>
+                `;
+
+                const actions = document.createElement('div');
+                actions.className = 'game-actions';
+                actions.innerHTML = `
+                    <button class="action-btn edit-btn" onclick="editGame('${gameId}')">编辑</button>
+                    <button class="action-btn delete-btn" onclick="deleteGame('${gameId}')">删除</button>
+                `;
+
+                gameItem.appendChild(thumb);
+                gameItem.appendChild(info);
+                gameItem.appendChild(actions);
+                container.appendChild(gameItem);
+            });
+
+            if (totalEl) totalEl.textContent = allIds.length;
+            if (filteredEl) filteredEl.textContent = filteredIds.length;
+        }
+        
+        // 编辑游戏
+        function editGame(gameId) {
+            const game = gamesData[gameId];
+            
+            // 填充表单
+            document.getElementById('game-id').value = gameId;
+            document.getElementById('game-title').value = game.title;
+            document.getElementById('game-description').value = game.description;
+            document.getElementById('game-category').value = game.category;
+            document.getElementById('game-image').value = game.image;
+            document.getElementById('game-iframe').value = game.iframe;
+            document.getElementById('play-count').value = game.stats.playCount;
+            document.getElementById('likes').value = game.stats.likes;
+            document.getElementById('rating').value = game.stats.rating;
+            
+            // 填充数组数据
+            fillArrayContainer('tags-container', game.tags);
+            fillArrayContainer('controls-container', game.controls);
+            fillArrayContainer('tips-container', game.tips);
+            
+            // 切换到添加面板
+            showPanel('add');
+            
+            // 滚动到顶部
+            window.scrollTo(0, 0);
+            
+            // 进入编辑模式
+            enterEditMode(gameId);
+        }
+        
+        // 填充数组容器
+        function fillArrayContainer(containerId, data) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            if (data && data.length > 0) {
+                data.forEach((item, index) => {
+                    const newItem = document.createElement('div');
+                    newItem.className = 'array-item';
+                    newItem.innerHTML = `
+                        <input type="text" class="array-input" value="${item}">
+                        <button type="button" class="array-btn" onclick="removeArrayItem(this)">删除</button>
+                    `;
+                    container.appendChild(newItem);
+                });
+            } else {
+                // 至少添加一个空项目
+                addArrayItem(containerId, '标签1');
+            }
+        }
+        
+        // 删除游戏
+        function deleteGame(gameId) {
+            if (confirm(`确定要删除游戏 "${gamesData[gameId].title}" 吗？`)) {
+                delete gamesData[gameId];
+                saveGamesData();
+                loadGamesList();
+                showMessage('游戏删除成功！', 'success');
+            }
+        }
+        
+        // 更新统计数据
+        function updateStats() {
+            const totalGames = Object.keys(gamesData).length;
+            let totalPlays = 0;
+            let totalLikes = 0;
+            let totalRating = 0;
+            let ratingCount = 0;
+            
+            const categoryStats = {};
+            
+            Object.values(gamesData).forEach(game => {
+                totalPlays += game.stats.playCount;
+                totalLikes += game.stats.likes;
+                totalRating += game.stats.rating;
+                ratingCount++;
+                
+                // 统计分类
+                if (!categoryStats[game.category]) {
+                    categoryStats[game.category] = 0;
+                }
+                categoryStats[game.category]++;
+            });
+            
+            // 更新统计显示
+            document.getElementById('total-games').textContent = totalGames;
+            document.getElementById('total-plays').textContent = formatNumber(totalPlays);
+            document.getElementById('total-likes').textContent = formatNumber(totalLikes);
+            document.getElementById('avg-rating').textContent = ratingCount > 0 ? (totalRating / ratingCount).toFixed(1) : '0';
+            
+            // 更新分类统计
+            const categoryContainer = document.getElementById('category-stats');
+            categoryContainer.innerHTML = '';
+            
+            Object.keys(categoryStats).forEach(category => {
+                const categoryCard = document.createElement('div');
+                categoryCard.style.cssText = 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; border-radius: 10px; text-align: center;';
+                categoryCard.innerHTML = `
+                    <h4 style="font-size: 1.5rem; margin-bottom: 5px;">${categoryStats[category]}</h4>
+                    <p style="font-size: 0.9rem;">${category}</p>
+                `;
+                categoryContainer.appendChild(categoryCard);
+            });
+        }
+        
+        // 格式化数字
+        function formatNumber(num) {
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(1) + 'M';
+            } else if (num >= 1000) {
+                return (num / 1000).toFixed(1) + 'K';
+            }
+            return num.toString();
+        }
+        
+        // 导出游戏数据
+        function exportGamesData() {
+            const dataStr = JSON.stringify(gamesData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'games-data.json';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        // 导入游戏数据
+        function importGamesData() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        try {
+                            const data = JSON.parse(e.target.result);
+                            gamesData = data;
+                            saveGamesData();
+                            loadGamesList();
+                            updateStats();
+                            showMessage('游戏数据导入成功！', 'success');
+                        } catch (error) {
+                            showMessage('文件格式错误，请选择有效的JSON文件', 'error');
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            };
+            input.click();
+        }
+        
+        // 用户管理功能
+        function addUser() {
+            const username = document.getElementById('new-username').value.trim();
+            const password = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            // 验证输入
+            if (!username || !password || !confirmPassword) {
+                showUserMessage('请填写所有字段', 'error');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showUserMessage('两次输入的密码不一致', 'error');
+                return;
+            }
+            
+            if (password.length < 6) {
+                showUserMessage('密码长度至少6位', 'error');
+                return;
+            }
+            
+            // 检查用户名是否已存在
+            const admins = getAdmins();
+            if (admins.some(admin => admin.username === username)) {
+                showUserMessage('用户名已存在', 'error');
+                return;
+            }
+            
+            // 创建新管理员
+            const newAdmin = {
+                username: username,
+                password: password,
+                role: 'admin',
+                created: new Date().toISOString()
+            };
+            
+            // 添加到管理员列表
+            admins.push(newAdmin);
+            localStorage.setItem('adminUsers', JSON.stringify(admins));
+            
+            // 显示成功消息
+            showUserMessage('管理员添加成功！', 'success');
+            
+            // 清空表单
+            document.getElementById('user-form').reset();
+            
+            // 重新加载用户列表
+            loadUsersList();
+        }
+        
+        // 获取管理员列表
+        function getAdmins() {
+            const adminsData = localStorage.getItem('adminUsers');
+            return adminsData ? JSON.parse(adminsData) : [];
+        }
+        
+        // 加载用户列表
+        function loadUsersList() {
+            const container = document.getElementById('users-list');
+            container.innerHTML = '';
+            
+            const admins = getAdmins();
+            
+            admins.forEach(admin => {
+                const userItem = document.createElement('div');
+                userItem.className = 'game-item';
+                userItem.innerHTML = `
+                    <div class="game-header">
+                        <h3 class="game-title">${admin.username}</h3>
+                        <div class="game-actions">
+                            <button class="action-btn delete-btn" onclick="deleteUser('${admin.username}')">删除</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <p><strong>角色:</strong> ${admin.role}</p>
+                        <p><strong>创建时间:</strong> ${new Date(admin.created).toLocaleString()}</p>
+                    </div>
+                `;
+                container.appendChild(userItem);
+            });
+        }
+        
+        // 删除用户
+        function deleteUser(username) {
+            if (confirm(`确定要删除管理员 "${username}" 吗？`)) {
+                const admins = getAdmins();
+                const filteredAdmins = admins.filter(admin => admin.username !== username);
+                localStorage.setItem('adminUsers', JSON.stringify(filteredAdmins));
+                loadUsersList();
+                showUserMessage('管理员删除成功！', 'success');
+            }
+        }
+        
+        // 显示用户消息
+        function showUserMessage(message, type) {
+            const container = document.getElementById('user-message-container');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = type === 'success' ? 'success-message' : 'error-message';
+            messageDiv.textContent = message;
+            
+            container.innerHTML = '';
+            container.appendChild(messageDiv);
+            
+            // 3秒后自动隐藏
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

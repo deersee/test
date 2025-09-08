@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理员登录 - Game8.live</title>
+    <meta name="description" content="Game8.live 管理员登录系统">
+    <meta name="author" content="Game8.live">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .login-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .login-header {
+            margin-bottom: 30px;
+        }
+        
+        .login-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .login-subtitle {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        .login-form {
+            text-align: left;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .login-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .login-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .message {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .password-toggle {
+            position: relative;
+        }
+        
+        .password-toggle-btn {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+            font-size: 1.2rem;
+        }
+        
+        .password-toggle-btn:hover {
+            color: #333;
+        }
+        
+        .login-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e1e5e9;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .demo-credentials {
+            background: #f8f9fa;
+            border: 1px solid #e1e5e9;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        
+        .demo-credentials h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .demo-credentials p {
+            margin: 5px 0;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .demo-credentials strong {
+            color: #333;
+        }
+        
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 30px 20px;
+            }
+            
+            .login-title {
+                font-size: 1.5rem;
+            }
+            
+            .back-link {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">
+        ← 返回首页
+    </a>
+    
+    <div class="login-container">
+        <div class="login-header">
+            <h1 class="login-title">
+                🔐 管理员登录
+            </h1>
+            <p class="login-subtitle">请输入您的管理员凭据</p>
+        </div>
+        
+        <div id="message-container"></div>
+        
+        <form class="login-form" id="login-form" autocomplete="off">
+            <div class="form-group">
+                <label class="form-label">口令</label>
+                <input type="password" id="password" class="form-input" placeholder="请输入口令" required autocomplete="new-password">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">显示/隐藏</label>
+                <div class="password-toggle">
+                    <input type="checkbox" id="toggle-visibility" onclick="togglePasswordCheckbox()"> 显示口令
+                </div>
+            </div>
+            
+            <button type="submit" class="login-btn" id="login-btn">
+                登录
+            </button>
+        </form>
+        
+        <div class="demo-credentials">
+            <h4>安全提示</h4>
+            <p>出于安全考虑，此页面不再展示任何明文账号或密码。</p>
+            <p>如需配置管理员，请参考项目根目录的 <strong>ADMIN_README.md</strong>。</p>
+        </div>
+        
+        <div class="login-footer">
+            <p>Game8.live 后台管理系统</p>
+            <p>© 2024 保留所有权利</p>
+        </div>
+    </div>
+
+    <script>
+        // Web Crypto: PBKDF2 + SHA-256、HMAC、随机工具
+        async function pbkdf2DeriveKey(password, saltBase64, iterations = 120000) {
+            const encoder = new TextEncoder();
+            const salt = Uint8Array.from(atob(saltBase64), c => c.charCodeAt(0));
+            const keyMaterial = await crypto.subtle.importKey('raw', encoder.encode(password), { name: 'PBKDF2' }, false, ['deriveBits', 'deriveKey']);
+            const key = await crypto.subtle.deriveKey(
+                { name: 'PBKDF2', salt, iterations, hash: 'SHA-256' },
+                keyMaterial,
+                { name: 'HMAC', hash: 'SHA-256', length: 256 },
+                true,
+                ['sign', 'verify']
+            );
+            const raw = await crypto.subtle.exportKey('raw', key);
+            return Array.from(new Uint8Array(raw)).map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        async function hmacSignHex(hexKey, data) {
+            const keyBytes = new Uint8Array(hexKey.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
+            const cryptoKey = await crypto.subtle.importKey('raw', keyBytes, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+            const signature = await crypto.subtle.sign('HMAC', cryptoKey, new TextEncoder().encode(data));
+            return Array.from(new Uint8Array(signature)).map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查是否已经登录
+            checkLoginStatus();
+            
+            // 清理旧版本地用户存储，避免明文残留
+            legacyCleanup();
+            
+            // 表单提交事件
+            document.getElementById('login-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                handleLogin();
+            });
+        });
+        
+        // 清理历史本地管理员数据
+        function legacyCleanup() {
+            try { localStorage.removeItem('adminUsers'); } catch (e) {}
+        }
+        
+        // 检查登录状态
+        function checkLoginStatus() {
+            const loginData = localStorage.getItem('adminLoginData');
+            if (loginData) {
+                try {
+                    const data = JSON.parse(loginData);
+                    if (data.isLoggedIn && data.expires > Date.now()) {
+                        // 已登录且未过期，直接跳转到后台
+                        window.location.href = 'admin.html';
+                        return;
+                    } else {
+                        // 登录已过期，清除数据
+                        localStorage.removeItem('adminLoginData');
+                    }
+                } catch (error) {
+                    localStorage.removeItem('adminLoginData');
+                }
+            }
+        }
+        
+        // 处理登录
+        async function handleLogin() {
+            const password = document.getElementById('password').value;
+            const loginBtn = document.getElementById('login-btn');
+            
+            // 验证输入
+            if (!password) {
+                showMessage('请输入口令', 'error');
+                return;
+            }
+            
+            // 禁用登录按钮
+            loginBtn.disabled = true;
+            loginBtn.textContent = '登录中...';
+            
+            // 模拟登录延迟
+            setTimeout(async () => {
+                if (await authenticateUser(password)) {
+                    // 登录成功
+                    const loginData = {
+                        isLoggedIn: true,
+                        username: 'admin',
+                        loginTime: Date.now(),
+                        expires: Date.now() + (24 * 60 * 60 * 1000) // 24小时过期
+                    };
+                    // 生成会话签名
+                    try {
+                        const keyHex = await pbkdf2DeriveKey(password, APP_SALT_B64, 120000);
+                        const payload = JSON.stringify({ t: loginData.loginTime, e: loginData.expires });
+                        loginData.session = await hmacSignHex(keyHex, payload);
+                    } catch (e) {}
+
+                    localStorage.setItem('adminLoginData', JSON.stringify(loginData));
+                    showMessage('登录成功，正在跳转...', 'success');
+                    
+                    setTimeout(() => {
+                        window.location.href = 'admin.html';
+                    }, 1000);
+                } else {
+                    // 登录失败
+                    showMessage(getLockoutMessage() || '口令不正确', 'error');
+                    loginBtn.disabled = false;
+                    loginBtn.textContent = '登录';
+                }
+            }, 1000);
+        }
+        
+        // 验证用户凭据
+        // 配置：将 ADMIN_README.md 中生成的口令哈希和盐替换到下面
+        // 说明：APP_SALT_B64 为 Base64 编码的 16 字节盐；APP_PBKDF2_HEX 为 PBKDF2 衍生出的 32 字节 HMAC 密钥十六进制
+        const APP_SALT_B64 = 'J4Id5NaMIJf/bPD1h6NVog==';
+        const APP_PBKDF2_HEX = '623ea6bfdad952662b9f5f3ce743e6a870b7e82d96c2954bd01d386850959593';
+
+        // 简单本地防爆破：指数退避锁定
+        function getLockState() {
+            try { return JSON.parse(localStorage.getItem('adminLock') || 'null') || { fails: 0, until: 0 }; } catch { return { fails: 0, until: 0 }; }
+        }
+        function setLockState(state) {
+            localStorage.setItem('adminLock', JSON.stringify(state));
+        }
+        function getLockoutMessage() {
+            const state = getLockState();
+            if (state.until && Date.now() < state.until) {
+                const seconds = Math.ceil((state.until - Date.now()) / 1000);
+                return `已锁定，请 ${seconds}s 后重试`;
+            }
+            return '';
+        }
+
+        async function authenticateUser(password) {
+            const state = getLockState();
+            if (state.until && Date.now() < state.until) return false;
+
+            try {
+                const derivedHex = await pbkdf2DeriveKey(password, APP_SALT_B64, 120000);
+                const ok = timingSafeEqualHex(derivedHex, APP_PBKDF2_HEX);
+                if (!ok) {
+                    const fails = (state.fails || 0) + 1;
+                    const backoffSeconds = Math.min(300, Math.pow(2, Math.min(8, fails)) - 1); // 上限 5 分钟
+                    setLockState({ fails, until: Date.now() + backoffSeconds * 1000 });
+                } else {
+                    setLockState({ fails: 0, until: 0 });
+                }
+                return ok;
+            } catch (e) {
+                return false;
+            }
+        }
+        
+        function timingSafeEqualHex(a, b) {
+            if (typeof a !== 'string' || typeof b !== 'string') return false;
+            if (a.length !== b.length) return false;
+            let diff = 0;
+            for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+            return diff === 0;
+        }
+        
+        // 显示消息
+        function showMessage(message, type) {
+            const container = document.getElementById('message-container');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}-message`;
+            messageDiv.textContent = message;
+            
+            container.innerHTML = '';
+            container.appendChild(messageDiv);
+            
+            // 3秒后自动隐藏
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 3000);
+        }
+        
+        // 切换密码显示（复选框版）
+        function togglePasswordCheckbox() {
+            const passwordInput = document.getElementById('password');
+            const cb = document.getElementById('toggle-visibility');
+            passwordInput.type = cb.checked ? 'text' : 'password';
+        }
+        
+        // 回车键登录
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const form = document.getElementById('login-form');
+                if (form.checkValidity()) { handleLogin(); }
+            }
+        });
+    </script>
+</body>
+</html>

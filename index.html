@@ -1,279 +1,1488 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monster Survivors - Epic Survival Game Online | MonsterSurvivors.com</title>
-    <meta name="description" content="Play Monster Survivors - the ultimate survival game where you battle monstrous creatures in an epic adventure. Free to play online!">
-    <link rel="canonical" href="https://monstersurvivors.com/">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👾</text></svg>">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'apple-blue': '#007AFF',
-                        'apple-gray': '#8E8E93',
-                        'apple-light-gray': '#F5F5F7',
-                        'apple-dark-gray': '#1D1D1F',
-                        'apple-green': '#34C759',
-                        'apple-purple': '#AF52DE',
-                    }
-                }
-            }
+    <title data-i18n="site.title">Game8.live - 热门在线游戏平台</title>
+    <meta name="description" data-i18n="site.description" content="Game8.live提供最新最热门的在线游戏，包括Slither.io、Among Us、Agar.io、2048、俄罗斯方块、吃豆人、贪吃蛇、扫雷、数独、Wordle、Flappy Bird、Fall Guys、Skribbl.io、Krunker.io等经典和热门游戏，支持手机和电脑端，免费畅玩！">
+    <meta name="keywords" data-i18n="site.keywords" content="在线游戏,免费游戏,手机游戏,电脑游戏,游戏攻略,游戏下载,Slither.io,Among Us,Agar.io,2048,俄罗斯方块,吃豆人,贪吃蛇,扫雷,数独,Wordle,Flappy Bird,Fall Guys,Skribbl.io,Krunker.io,多人游戏,益智游戏,动作游戏,策略游戏,休闲游戏,社交游戏,推理游戏,射击游戏,经典游戏,热门游戏,网页游戏,浏览器游戏">
+    <meta name="author" content="Game8.live">
+    <meta property="og:title" content="Game8.live - 热门在线游戏平台">
+    <meta property="og:description" content="Game8.live提供最新最热门的在线游戏，包括动作、策略、休闲等多种类型游戏">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://game8.live">
+    <meta property="og:image" content="https://game8.live/images/og-image.jpg">
+    <link rel="canonical" href="https://game8.live">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Game8.live",
+        "description": "Game8.live提供最新最热门的在线游戏，包括动作、策略、休闲等多种类型游戏，支持手机和电脑端，免费畅玩！",
+        "url": "https://game8.live",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://game8.live/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Game8.live",
+            "url": "https://game8.live"
         }
+    }
     </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(135deg, #F5F5F7 0%, #FFFFFF 100%);
-            color: #1D1D1F;
-            line-height: 1.6;
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Game",
+        "name": "Slither.io",
+        "description": "风靡全球的多人在线贪吃蛇游戏",
+        "genre": ["多人", "休闲", "贪吃蛇", "在线游戏"],
+        "gamePlatform": "Web Browser",
+        "url": "https://game8.live/game-detail.html?game=slither",
+        "image": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop&crop=center",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.5",
+            "ratingCount": "220000"
         }
-        
-        .game-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Game",
+        "name": "Among Us",
+        "description": "风靡全球的多人社交推理游戏",
+        "genre": ["多人", "社交", "推理", "策略"],
+        "gamePlatform": "Web Browser",
+        "url": "https://game8.live/game-detail.html?game=amongus",
+        "image": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop&crop=center",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.6",
+            "ratingCount": "180000"
         }
-        
-        .game-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-        
-        .game-frame {
-            width: 100%;
-            height: 600px;
-            border: none;
-            background-color: #000;
-        }
-        
-        .feature-card {
-            transition: all 0.3s ease;
-            border-radius: 16px;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-apple {
-            background: linear-gradient(135deg, #007AFF 0%, #0050C8 100%);
-            color: white;
-            border-radius: 12px;
-            padding: 12px 24px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-apple:hover {
-            background: linear-gradient(135deg, #0050C8 0%, #0040A0 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 122, 255, 0.3);
-        }
-        
-        @media (max-width: 768px) {
-            .game-frame {
-                height: 400px;
-            }
-            
-            .hero-text {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
+    }
+    </script>
 </head>
-<body class="min-h-screen flex flex-col">
-    <!-- Header -->
-    <header class="bg-white/80 backdrop-blur-md py-4 px-6 sticky top-0 z-50 shadow-sm">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <span class="text-2xl">👾</span>
-                <span class="font-bold text-xl text-apple-dark-gray">MonsterSurvivors</span>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>Game8.live</h1>
             </div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#game" class="text-apple-dark-gray hover:text-apple-blue transition-colors">Play</a>
-                <a href="#about" class="text-apple-dark-gray hover:text-apple-blue transition-colors">About</a>
-                <a href="#features" class="text-apple-dark-gray hover:text-apple-blue transition-colors">Features</a>
-                <a href="#tips" class="text-apple-dark-gray hover:text-apple-blue transition-colors">Tips</a>
-            </nav>
-            <button class="md:hidden text-apple-dark-gray">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="py-16 px-6">
-        <div class="container mx-auto text-center max-w-3xl">
-            <h1 class="hero-text text-5xl md:text-6xl font-bold mb-6 text-apple-dark-gray">Monster Survivors</h1>
-            <p class="text-xl md:text-2xl text-apple-gray mb-10">Survive the monster apocalypse in this thrilling action-packed adventure!</p>
-            <a href="#game" class="btn-apple inline-block">Play Now - It's Free</a>
-        </div>
-    </section>
-
-    <!-- Game Section -->
-    <section id="game" class="py-12 px-6 bg-apple-light-gray">
-        <div class="container mx-auto max-w-5xl">
-            <h2 class="text-3xl font-bold text-center mb-12 text-apple-dark-gray">Play Monster Survivors Online</h2>
-            <div class="game-container">
-                <iframe src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" 
-                        class="game-frame" 
-                        title="Monster Survivors Game" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                </iframe>
-            </div>
-            <div class="text-center mt-8">
-                <p class="text-apple-gray">Game may take a few moments to load. For best experience, use Chrome or Firefox browser.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 px-6">
-        <div class="container mx-auto max-w-4xl">
-            <h2 class="text-3xl font-bold text-center mb-12 text-apple-dark-gray">About Monster Survivors</h2>
-            <div class="grid md:grid-cols-2 gap-10">
-                <div>
-                    <p class="mb-4">Monster Survivors is an action-packed survival game where you face waves of monstrous creatures in a post-apocalyptic world. Your goal is simple: survive as long as possible while defeating as many monsters as you can.</p>
-                    <p class="mb-4">With intuitive controls and progressively challenging gameplay, Monster Survivors offers an engaging experience for both casual and hardcore gamers.</p>
-                    <p>This game is developed using Unity engine and runs directly in your browser with no downloads required.</p>
-                </div>
-                <div class="bg-apple-light-gray p-6 rounded-2xl">
-                    <h3 class="text-xl font-semibold mb-4 text-apple-dark-gray">Game Details</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-center"><span class="text-apple-blue mr-2">•</span> <strong>Genre:</strong> Survival, Action</li>
-                        <li class="flex items-center"><span class="text-apple-blue mr-2">•</span> <strong>Platform:</strong> Web Browser (PC, Mobile, Tablet)</li>
-                        <li class="flex items-center"><span class="text-apple-blue mr-2">•</span> <strong>Players:</strong> Single Player</li>
-                        <li class="flex items-center"><span class="text-apple-blue mr-2">•</span> <strong>Rating:</strong> 4.8/5 Stars</li>
-                        <li class="flex items-center"><span class="text-apple-blue mr-2">•</span> <strong>Release Date:</strong> January 2023</li>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link" data-i18n="nav.home">首页</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#categories" class="nav-link" data-i18n="nav.categories">游戏分类 <span class="dropdown-arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#action" data-i18n="categories.action">动作游戏</a></li>
+                        <li><a href="#strategy" data-i18n="categories.strategy">策略游戏</a></li>
+                        <li><a href="#puzzle" data-i18n="categories.puzzle">益智游戏</a></li>
+                        <li><a href="#racing" data-i18n="categories.racing">竞速游戏</a></li>
+                        <li><a href="#sports" data-i18n="categories.sports">体育游戏</a></li>
+                        <li><a href="#adventure" data-i18n="categories.adventure">冒险游戏</a></li>
                     </ul>
-                </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#news" class="nav-link" data-i18n="nav.news">游戏资讯</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#reviews" class="nav-link" data-i18n="nav.reviews">游戏评测</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#guides" class="nav-link" data-i18n="nav.guides">游戏攻略</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link" data-i18n="nav.language">语言 <span class="dropdown-arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="changeLanguage('zh-CN')">中文</a></li>
+                        <li><a href="#" onclick="changeLanguage('en-US')">English</a></li>
+                        <li><a href="#" onclick="changeLanguage('de-DE')">Deutsch</a></li>
+                        <li><a href="#" onclick="changeLanguage('fr-FR')">Français</a></li>
+                        <li><a href="#" onclick="changeLanguage('it-IT')">Italiano</a></li>
+                        <li><a href="#" onclick="changeLanguage('ja-JP')">日本語</a></li>
+                        <li><a href="#" onclick="changeLanguage('ko-KR')">한국어</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <!-- Features Section -->
-    <section id="features" class="py-16 px-6 bg-apple-light-gray">
-        <div class="container mx-auto max-w-5xl">
-            <h2 class="text-3xl font-bold text-center mb-12 text-apple-dark-gray">Game Features</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="feature-card bg-white p-6 rounded-2xl shadow-sm">
-                    <div class="text-4xl mb-4">🎮</div>
-                    <h3 class="text-xl font-semibold mb-3 text-apple-dark-gray">Easy Controls</h3>
-                    <p class="text-apple-gray">Simple touch or click controls that are easy to learn but hard to master.</p>
-                </div>
-                <div class="feature-card bg-white p-6 rounded-2xl shadow-sm">
-                    <div class="text-4xl mb-4">⚡</div>
-                    <h3 class="text-xl font-semibold mb-3 text-apple-dark-gray">Fast-Paced Action</h3>
-                    <p class="text-apple-gray">Non-stop action with waves of monsters and increasingly difficult challenges.</p>
-                </div>
-                <div class="feature-card bg-white p-6 rounded-2xl shadow-sm">
-                    <div class="text-4xl mb-4">🔮</div>
-                    <h3 class="text-xl font-semibold mb-3 text-apple-dark-gray">Power-Ups & Abilities</h3>
-                    <p class="text-apple-gray">Unlock special powers and abilities to help you survive longer.</p>
-                </div>
-                <div class="feature-card bg-white p-6 rounded-2xl shadow-sm">
-                    <div class="text-4xl mb-4">🏆</div>
-                    <h3 class="text-xl font-semibold mb-3 text-apple-dark-gray">Achievements</h3>
-                    <p class="text-apple-gray">Complete challenges and earn achievements to show off your skills.</p>
-                </div>
-                <div class="feature-card bg-white p-6 rounded-2xl shadow-sm">
-                    <div class="text-4xl mb-4">🌍</div>
-                    <h3 class="text-xl font-semibold mb-3 text-apple-dark-gray">Multiple Environments</h3>
-                    <p class="text-apple-gray">Battle through different apocalyptic landscapes with unique monsters.</p>
-                </div>
-                <div class="feature-card bg-white p-6 rounded-2xl shadow-sm">
-                    <div class="text-4xl mb-4">💾</div>
-                    <h3 class="text-xl font-semibold mb-3 text-apple-dark-gray">Progress Saving</h3>
-                    <p class="text-apple-gray">Your progress is automatically saved so you can continue anytime.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- 主要内容区域 -->
+    <main>
+        <!-- 英雄区域 -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-kicker">Game8.live</div>
+                <h2 class="hero-title" data-i18n="hero.title">发现最新热门的在线游戏</h2>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">即点即玩 · 免安装 · 手机/电脑全平台流畅体验</p>
 
-    <!-- Tips Section -->
-    <section id="tips" class="py-16 px-6">
-        <div class="container mx-auto max-w-4xl">
-            <h2 class="text-3xl font-bold text-center mb-12 text-apple-dark-gray">Pro Survival Tips</h2>
-            <div class="bg-white rounded-2xl shadow-sm p-8">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="text-xl font-semibold mb-4 text-apple-dark-gray">Beginner Strategies</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start"><span class="text-apple-blue mr-2">•</span> Keep moving to avoid monster attacks</li>
-                            <li class="flex items-start"><span class="text-apple-blue mr-2">•</span> Focus on upgrading one weapon at a time</li>
-                            <li class="flex items-start"><span class="text-apple-blue mr-2">•</span> Collect experience gems as quickly as possible</li>
-                            <li class="flex items-start"><span class="text-apple-blue mr-2">•</span> Use environmental obstacles to your advantage</li>
-                        </ul>
+                <div class="hero-search">
+                    <input type="text" placeholder="搜索 Slither、2048、Among Us..." aria-label="搜索游戏">
+                    <button onclick="document.getElementById('featured').scrollIntoView({behavior:'smooth'})">搜索</button>
+                </div>
+
+                <div class="hero-badges">
+                    <span class="badge">免下载</span>
+                    <span class="badge">多人联机</span>
+                    <span class="badge">热门精选</span>
+                    <span class="badge">每日更新</span>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">精选游戏</div>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-4 text-apple-dark-gray">Advanced Tactics</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start"><span class="text-apple-blue mr-2">•</span> Learn monster patterns and attack cues</li>
-                            <li class="flex items-start"><span class="text-apple-blue mr-2">•</span> Combine specific power-ups for synergistic effects</li>
-                            <li class="flex items-start"><span class="text-apple-blue mr-2">•</span> Save special abilities for boss waves</li>
-                            <li class="flex items-start"><span class="text-apple-blue mr-2">•</span> Master dodging to minimize damage taken</li>
-                        </ul>
+                    <div class="stat">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">语言支持</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.6</div>
+                        <div class="stat-label">玩家评分</div>
                     </div>
                 </div>
-                <div class="mt-10 p-6 bg-apple-light-gray rounded-xl">
-                    <h3 class="text-xl font-semibold mb-3 text-apple-dark-gray">Did You Know?</h3>
-                    <p class="text-apple-gray">Monster Survivors was inspired by classic arcade games but with modern rogue-like elements. The game features over 30 different monsters and 15 unique power-ups to discover!</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-apple-dark-gray text-white py-12 px-6 mt-auto">
-        <div class="container mx-auto max-w-5xl">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">MonsterSurvivors</h3>
-                    <p class="text-apple-gray">The ultimate monster survival experience. Free to play in your browser!</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#game" class="text-apple-gray hover:text-white transition-colors">Play Game</a></li>
-                        <li><a href="#about" class="text-apple-gray hover:text-white transition-colors">About</a></li>
-                        <li><a href="#features" class="text-apple-gray hover:text-white transition-colors">Features</a></li>
-                        <li><a href="#tips" class="text-apple-gray hover:text-white transition-colors">Tips</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Legal</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-apple-gray hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="text-apple-gray hover:text-white transition-colors">Terms of Service</a></li>
-                        <li><a href="#" class="text-apple-gray hover:text-white transition-colors">Contact Us</a></li>
-                    </ul>
+                <div class="hero-buttons">
+                    <a href="#featured" class="btn btn-primary" data-i18n="hero.playNow">开始游戏</a>
+                    <a href="#categories" class="btn btn-secondary" data-i18n="hero.browseCategories">浏览分类</a>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-apple-gray">
-                <p>© 2023 MonsterSurvivors.com. All rights reserved.</p>
+            <div class="hero-image">
+                <div class="thumb-grid">
+                    <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=200&h=140&fit=crop&crop=center" alt="Slither.io">
+                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=200&h=140&fit=crop&crop=center" alt="Among Us">
+                    <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=200&h=140&fit=crop&crop=center" alt="2048">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=200&h=140&fit=crop&crop=center" alt="Pacman">
+                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=200&h=140&fit=crop&crop=center" alt="Krunker">
+                    <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=200&h=140&fit=crop&crop=center" alt="Skribbl.io">
+                </div>
+                <div class="hero-note">热门实时更新 · 一键直达</div>
+            </div>
+        </section>
+
+        <!-- 特色游戏区域 -->
+        <section id="featured" class="featured-games">
+            <div class="container">
+                <h2 class="section-title" data-i18n="sections.featured">热门推荐</h2>
+                <div class="games-grid">
+                    <div class="game-card" data-game="slither" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop&crop=center" alt="Slither.io - 多人在线贪吃蛇游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" onclick="openGameDetail('slither')" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name" data-i18n="games.slither.title">Slither.io</h3>
+                            <p itemprop="description" data-i18n="games.slither.description">风靡全球的多人在线贪吃蛇游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="3200000">320万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="220000">22万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.5">4.5</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">多人</span>
+                                <span class="tag" itemprop="genre">休闲</span>
+                                <span class="tag" itemprop="genre">贪吃蛇</span>
+                                <span class="tag" itemprop="genre">在线游戏</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=slither">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="agar" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop&crop=center" alt="Agar.io - 经典吞噬类多人在线游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" onclick="openGameDetail('agar')" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name" data-i18n="games.agar.title">Agar.io</h3>
+                            <p itemprop="description" data-i18n="games.agar.description">经典吞噬类多人在线游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="2800000">280万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="190000">19万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.4">4.4</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">多人</span>
+                                <span class="tag" itemprop="genre">策略</span>
+                                <span class="tag" itemprop="genre">吞噬</span>
+                                <span class="tag" itemprop="genre">在线游戏</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=agar">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="2048" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center" alt="2048 - 经典数字益智游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name" data-i18n="games.2048.title">2048</h3>
+                            <p itemprop="description" data-i18n="games.2048.description">经典数字益智游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="1500000">150万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="95000">9.5万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.3">4.3</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">益智</span>
+                                <span class="tag" itemprop="genre">数字</span>
+                                <span class="tag" itemprop="genre">策略</span>
+                                <span class="tag" itemprop="genre">经典</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=2048">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="tetris" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center" alt="俄罗斯方块 - 经典方块消除游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name" data-i18n="games.tetris.title">俄罗斯方块</h3>
+                            <p itemprop="description" data-i18n="games.tetris.description">经典方块消除游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="2000000">200万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="140000">14万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.7">4.7</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">经典</span>
+                                <span class="tag" itemprop="genre">益智</span>
+                                <span class="tag" itemprop="genre">方块</span>
+                                <span class="tag" itemprop="genre">消除</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=tetris">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="pacman" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center" alt="吃豆人 - 经典街机游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name" data-i18n="games.pacman.title">吃豆人</h3>
+                            <p itemprop="description" data-i18n="games.pacman.description">经典街机游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="1800000">180万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="120000">12万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.6">4.6</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">经典</span>
+                                <span class="tag" itemprop="genre">街机</span>
+                                <span class="tag" itemprop="genre">迷宫</span>
+                                <span class="tag" itemprop="genre">怀旧</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=pacman">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="snake" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop&crop=center" alt="贪吃蛇 - 经典手机游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name" data-i18n="games.snake.title">贪吃蛇</h3>
+                            <p itemprop="description" data-i18n="games.snake.description">经典手机游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="1100000">110万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="78000">7.8万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.1">4.1</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">经典</span>
+                                <span class="tag" itemprop="genre">休闲</span>
+                                <span class="tag" itemprop="genre">贪吃蛇</span>
+                                <span class="tag" itemprop="genre">简单</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=snake">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="minesweeper" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center" alt="扫雷 - 经典逻辑推理游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name" data-i18n="games.minesweeper.title">扫雷</h3>
+                            <p itemprop="description" data-i18n="games.minesweeper.description">经典逻辑推理游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="850000">85万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="62000">6.2万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.0">4.0</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">逻辑</span>
+                                <span class="tag" itemprop="genre">推理</span>
+                                <span class="tag" itemprop="genre">经典</span>
+                                <span class="tag" itemprop="genre">策略</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=minesweeper">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="sudoku" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center" alt="数独 - 经典数字逻辑游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name" data-i18n="games.sudoku.title">数独</h3>
+                            <p itemprop="description" data-i18n="games.sudoku.description">经典数字逻辑游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="1200000">120万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="85000">8.5万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.2">4.2</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">逻辑</span>
+                                <span class="tag" itemprop="genre">数字</span>
+                                <span class="tag" itemprop="genre">推理</span>
+                                <span class="tag" itemprop="genre">益智</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=sudoku">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="wordle" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center" alt="Wordle - 热门单词猜谜游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name" data-i18n="games.wordle.title">Wordle</h3>
+                            <p itemprop="description" data-i18n="games.wordle.description">风靡全球的单词猜谜游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="1600000">160万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="110000">11万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.4">4.4</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">单词</span>
+                                <span class="tag" itemprop="genre">推理</span>
+                                <span class="tag" itemprop="genre">益智</span>
+                                <span class="tag" itemprop="genre">每日挑战</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=wordle">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="flappy" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center" alt="Flappy Bird - 经典飞行躲避游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name" data-i18n="games.flappy.title">Flappy Bird</h3>
+                            <p itemprop="description" data-i18n="games.flappy.description">经典飞行躲避游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="1250000">125万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="89000">8.9万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.2">4.2</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">动作</span>
+                                <span class="tag" itemprop="genre">反应</span>
+                                <span class="tag" itemprop="genre">飞行</span>
+                                <span class="tag" itemprop="genre">挑战</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=flappy">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="amongus" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop&crop=center" alt="Among Us - 多人社交推理游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name" data-i18n="games.amongus.title">Among Us</h3>
+                            <p itemprop="description" data-i18n="games.amongus.description">风靡全球的多人社交推理游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="2500000">250万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="180000">18万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.6">4.6</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">多人</span>
+                                <span class="tag" itemprop="genre">社交</span>
+                                <span class="tag" itemprop="genre">推理</span>
+                                <span class="tag" itemprop="genre">策略</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=amongus">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="fallguys" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center" alt="Fall Guys - 欢乐多人竞技游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name" data-i18n="games.fallguys.title">Fall Guys</h3>
+                            <p itemprop="description" data-i18n="games.fallguys.description">充满欢乐的多人竞技游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="1800000">180万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="120000">12万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.4">4.4</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">多人</span>
+                                <span class="tag" itemprop="genre">竞技</span>
+                                <span class="tag" itemprop="genre">休闲</span>
+                                <span class="tag" itemprop="genre">欢乐</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=fallguys">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="skribbl" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop&crop=center" alt="Skribbl.io - 在线猜词绘画游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name" data-i18n="games.skribbl.title">Skribbl.io</h3>
+                            <p itemprop="description" data-i18n="games.skribbl.description">创意十足的在线猜词绘画游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="950000">95万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="67000">6.7万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.1">4.1</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">创意</span>
+                                <span class="tag" itemprop="genre">社交</span>
+                                <span class="tag" itemprop="genre">绘画</span>
+                                <span class="tag" itemprop="genre">猜词</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=skribbl">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="krunker" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop&crop=center" alt="Krunker.io - 快节奏第一人称射击游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name" data-i18n="games.krunker.title">Krunker.io</h3>
+                            <p itemprop="description" data-i18n="games.krunker.description">快节奏的在线第一人称射击游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="2100000">210万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="150000">15万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.3">4.3</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">射击</span>
+                                <span class="tag" itemprop="genre">动作</span>
+                                <span class="tag" itemprop="genre">多人</span>
+                                <span class="tag" itemprop="genre">FPS</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=krunker">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <!-- 新增游戏 -->
+                    <div class="game-card" data-game="chess" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center" alt="国际象棋 - 经典策略棋类游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" onclick="openGameDetail('chess')" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name">国际象棋</h3>
+                            <p itemprop="description">经典的策略棋类游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="800000">80万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="65000">6.5万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.8">4.8</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">策略</span>
+                                <span class="tag" itemprop="genre">棋类</span>
+                                <span class="tag" itemprop="genre">智力</span>
+                                <span class="tag" itemprop="genre">经典</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=chess">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="checkers" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center" alt="跳棋 - 经典策略棋类游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" onclick="openGameDetail('checkers')" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name">跳棋</h3>
+                            <p itemprop="description">经典的策略棋类游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="600000">60万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="45000">4.5万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.3">4.3</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">策略</span>
+                                <span class="tag" itemprop="genre">棋类</span>
+                                <span class="tag" itemprop="genre">简单</span>
+                                <span class="tag" itemprop="genre">经典</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=checkers">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="connect4" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center" alt="四子棋 - 经典策略游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" onclick="openGameDetail('connect4')" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name">四子棋</h3>
+                            <p itemprop="description">经典的策略游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="500000">50万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="38000">3.8万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.2">4.2</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">策略</span>
+                                <span class="tag" itemprop="genre">棋类</span>
+                                <span class="tag" itemprop="genre">简单</span>
+                                <span class="tag" itemprop="genre">益智</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=connect4">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="tictactoe" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center" alt="井字棋 - 最经典的策略游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" onclick="openGameDetail('tictactoe')" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name">井字棋</h3>
+                            <p itemprop="description">最经典的策略游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="400000">40万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="30000">3万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.1">4.1</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">策略</span>
+                                <span class="tag" itemprop="genre">简单</span>
+                                <span class="tag" itemprop="genre">经典</span>
+                                <span class="tag" itemprop="genre">快速</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=tictactoe">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="memory" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center" alt="记忆翻牌 - 经典记忆训练游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" onclick="openGameDetail('memory')" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name">记忆翻牌</h3>
+                            <p itemprop="description">经典记忆训练游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="350000">35万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="28000">2.8万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.0">4.0</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">记忆</span>
+                                <span class="tag" itemprop="genre">益智</span>
+                                <span class="tag" itemprop="genre">训练</span>
+                                <span class="tag" itemprop="genre">简单</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=memory">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="solitaire" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center" alt="纸牌接龙 - 经典纸牌游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" onclick="openGameDetail('solitaire')" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name">纸牌接龙</h3>
+                            <p itemprop="description">经典纸牌游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="900000">90万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="72000">7.2万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.5">4.5</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">纸牌</span>
+                                <span class="tag" itemprop="genre">策略</span>
+                                <span class="tag" itemprop="genre">经典</span>
+                                <span class="tag" itemprop="genre">单人</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=solitaire">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="mahjong" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center" alt="麻将连连看 - 经典消除游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" onclick="openGameDetail('mahjong')" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name">麻将连连看</h3>
+                            <p itemprop="description">经典消除游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="750000">75万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="58000">5.8万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.4">4.4</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">消除</span>
+                                <span class="tag" itemprop="genre">麻将</span>
+                                <span class="tag" itemprop="genre">策略</span>
+                                <span class="tag" itemprop="genre">经典</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=mahjong">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="breakout" itemscope itemtype="https://schema.org/VideoGame">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center" alt="打砖块 - 经典街机游戏" itemprop="image">
+                            <div class="game-overlay">
+                                <button class="play-btn" onclick="openGameDetail('breakout')" data-i18n="buttons.playNow">立即游戏</button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 itemprop="name">打砖块</h3>
+                            <p itemprop="description">经典街机游戏</p>
+                            <div class="game-stats">
+                                <span class="stat-item">
+                                    <span class="stat-icon">🎮</span>
+                                    <span class="stat-value" data-play-count="650000">65万</span>
+                                    <span class="stat-label" data-i18n="stats.times">次</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">❤️</span>
+                                    <span class="stat-value" data-likes="48000">4.8万</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <span class="stat-value" data-rating="4.3">4.3</span>
+                                </span>
+                            </div>
+                            <div class="game-tags">
+                                <span class="tag" itemprop="genre">街机</span>
+                                <span class="tag" itemprop="genre">动作</span>
+                                <span class="tag" itemprop="genre">经典</span>
+                                <span class="tag" itemprop="genre">反应</span>
+                            </div>
+                            <meta itemprop="url" content="https://game8.live/game-detail.html?game=breakout">
+                            <meta itemprop="gamePlatform" content="Web Browser">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 游戏分类区域 -->
+        <section id="categories" class="game-categories">
+            <div class="container">
+                <h2 class="section-title" data-i18n="sections.categories">游戏分类</h2>
+                <div class="categories-grid">
+                    <div class="category-card" data-category="action">
+                        <div class="category-icon">⚔️</div>
+                        <h3 data-i18n="categories.action">动作游戏</h3>
+                        <p>体验肾上腺素飙升的刺激战斗，在快节奏的游戏中展现你的反应速度和操作技巧。从经典射击到现代格斗，每一款游戏都带来独特的动作体验。</p>
+                        <div class="category-stats">
+                            <span class="category-count">15款游戏</span>
+                            <span class="category-players">2.3M玩家</span>
+                        </div>
+                    </div>
+                    <div class="category-card" data-category="strategy">
+                        <div class="category-icon">🧠</div>
+                        <h3 data-i18n="categories.strategy">策略游戏</h3>
+                        <p>挑战你的智慧极限，在复杂的战略环境中制定完美计划。从资源管理到战术部署，每一局都是对思维能力的终极考验。</p>
+                        <div class="category-stats">
+                            <span class="category-count">12款游戏</span>
+                            <span class="category-players">1.8M玩家</span>
+                        </div>
+                    </div>
+                    <div class="category-card" data-category="puzzle">
+                        <div class="category-icon">🧩</div>
+                        <h3 data-i18n="categories.puzzle">益智游戏</h3>
+                        <p>锻炼大脑的最佳选择，通过逻辑推理和创造性思维解决各种难题。从数字谜题到空间推理，让智慧在游戏中闪光。</p>
+                        <div class="category-stats">
+                            <span class="category-count">18款游戏</span>
+                            <span class="category-players">3.1M玩家</span>
+                        </div>
+                    </div>
+                    <div class="category-card" data-category="racing">
+                        <div class="category-icon">🏎️</div>
+                        <h3 data-i18n="categories.racing">竞速游戏</h3>
+                        <p>感受速度与激情的完美结合，在虚拟赛道上体验极速驾驶的快感。从卡丁车到超级跑车，每一场比赛都是对驾驶技术的挑战。</p>
+                        <div class="category-stats">
+                            <span class="category-count">8款游戏</span>
+                            <span class="category-players">1.2M玩家</span>
+                        </div>
+                    </div>
+                    <div class="category-card" data-category="sports">
+                        <div class="category-icon">⚽</div>
+                        <h3 data-i18n="categories.sports">体育游戏</h3>
+                        <p>在虚拟体育场上挥洒汗水，体验各种体育运动的魅力。从足球到篮球，从网球到高尔夫，感受竞技体育的无限乐趣。</p>
+                        <div class="category-stats">
+                            <span class="category-count">10款游戏</span>
+                            <span class="category-players">1.5M玩家</span>
+                        </div>
+                    </div>
+                    <div class="category-card" data-category="adventure">
+                        <div class="category-icon">🗺️</div>
+                        <h3 data-i18n="categories.adventure">冒险游戏</h3>
+                        <p>踏上未知的冒险旅程，探索神秘的世界和隐藏的秘密。每一次冒险都是全新的体验，在探索中发现无限可能。</p>
+                        <div class="category-stats">
+                            <span class="category-count">14款游戏</span>
+                            <span class="category-players">2.0M玩家</span>
+                        </div>
+                    </div>
+                    <div class="category-card" data-category="social">
+                        <div class="category-icon">👥</div>
+                        <h3 data-i18n="categories.social">社交游戏</h3>
+                        <p>与全球玩家互动交流，在社交游戏中建立友谊和团队合作。从推理游戏到创意绘画，让游戏成为连接世界的桥梁。</p>
+                        <div class="category-stats">
+                            <span class="category-count">9款游戏</span>
+                            <span class="category-players">4.2M玩家</span>
+                        </div>
+                    </div>
+                    <div class="category-card" data-category="casual">
+                        <div class="category-icon">😊</div>
+                        <h3 data-i18n="categories.casual">休闲游戏</h3>
+                        <p>轻松愉快的游戏体验，适合任何时间任何地点。简单易上手，却能带来持久的乐趣，是放松身心的完美选择。</p>
+                        <div class="category-stats">
+                            <span class="category-count">22款游戏</span>
+                            <span class="category-players">5.8M玩家</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 游戏资讯区域 -->
+        <section id="news" class="game-news">
+            <div class="container">
+                <h2 class="section-title">游戏资讯</h2>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="https://via.placeholder.com/400x250/007AFF/FFFFFF?text=游戏新闻" alt="游戏新闻">
+                        </div>
+                        <div class="news-content">
+                            <h3>2024年最受欢迎的手机游戏排行榜</h3>
+                            <p>盘点今年最热门的手机游戏，看看哪些游戏最受玩家喜爱...</p>
+                            <div class="news-meta">
+                                <span class="news-date">2024-01-15</span>
+                                <span class="news-category">游戏资讯</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="https://via.placeholder.com/400x250/34C759/FFFFFF?text=游戏攻略" alt="游戏攻略">
+                        </div>
+                        <div class="news-content">
+                            <h3>新手必看：如何快速上手热门游戏</h3>
+                            <p>为新手玩家准备的游戏入门指南，让你快速成为游戏高手...</p>
+                            <div class="news-meta">
+                                <span class="news-date">2024-01-14</span>
+                                <span class="news-category">游戏攻略</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="https://via.placeholder.com/400x250/FF3B30/FFFFFF?text=游戏评测" alt="游戏评测">
+                        </div>
+                        <div class="news-content">
+                            <h3>深度评测：最新上线的热门游戏</h3>
+                            <p>专业游戏评测，为你分析最新游戏的优缺点...</p>
+                            <div class="news-meta">
+                                <span class="news-date">2024-01-13</span>
+                                <span class="news-category">游戏评测</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 游戏评测区域 -->
+        <section id="reviews" class="game-news">
+            <div class="container">
+                <h2 class="section-title">游戏评测</h2>
+                <div class="news-grid">
+                    <article class="news-card" itemscope itemtype="https://schema.org/Review">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=250&fit=crop&crop=center" alt="Slither.io 评测配图">
+                        </div>
+                        <div class="news-content">
+                            <h3 itemprop="name">Slither.io：简单规则下的高强度博弈</h3>
+                            <p itemprop="reviewBody">截至2025年，Slither.io 依然是最具粘性的休闲竞技之一。它用极简的吞噬与碰撞规则，制造了近乎零学习门槛的上手体验，却在多人对抗与空间压迫中孕育出极高的技战术上限。高段位对决比的是心理博弈和走位胆识：卡线、封位、反撬，每一步都能逆转战局。若能将镜头边缘与加速机制结合，常有以小博大之爽感。</p>
+                            <div class="news-meta">
+                                <span class="news-date">2025-09-08</span>
+                                <span class="news-category">动作/多人</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-card" itemscope itemtype="https://schema.org/Review">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop&crop=center" alt="Among Us 评测配图">
+                        </div>
+                        <div class="news-content">
+                            <h3 itemprop="name">Among Us：社交推理的最佳舞台仍在上演</h3>
+                            <p itemprop="reviewBody">截至2025年，Among Us 在派对与社区房中的热度仍在“回潮”。在固定的任务与会议循环中，它的乐趣来自群体协作中的不对称信息。强势之处在于“轻叙事、重行为”，每个微表情式的移动、每一次迟疑的按钮都可能成为证据。固定班底博弈会持续叠加，而公开房的随机性，则让每局都带点派对感。</p>
+                            <div class="news-meta">
+                                <span class="news-date">2025-09-07</span>
+                                <span class="news-category">社交/推理</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-card" itemscope itemtype="https://schema.org/Review">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop&crop=center" alt="Krunker.io 评测配图">
+                        </div>
+                        <div class="news-content">
+                            <h3 itemprop="name">Krunker.io：低门槛高速 FPS 的稳定之选</h3>
+                            <p itemprop="reviewBody">截至2025年，Krunker.io 仍是低门槛高速 FPS 的稳定之选。像素风遮掩了“高速 + 准心控制”的核心门槛，爽点在于即时匹配与稳定帧率，移动瞄准节奏明快。传统 FPS 玩家可直接迁移肌肉记忆；新手建议先在近距离枪械与小图中训练“拉枪线”与“预瞄角”。</p>
+                            <div class="news-meta">
+                                <span class="news-date">2025-09-06</span>
+                                <span class="news-category">射击/FPS</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-card" itemscope itemtype="https://schema.org/Review">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=250&fit=crop&crop=center" alt="2048 评测配图">
+                        </div>
+                        <div class="news-content">
+                            <h3 itemprop="name">2048：在秩序中制造增益的策略练习</h3>
+                            <p itemprop="reviewBody">截至2025年，2048 仍是策略入门的绝佳练习。它的核心不是“合并”，而是“秩序”。将最大值固化在角落，沿单轴推进，避免无效抖动，才是稳定上分的根本。它像一个节拍器，要求玩家把每次操作都嵌入既定节奏；耐心和克制比运气更重要。</p>
+                            <div class="news-meta">
+                                <span class="news-date">2025-09-05</span>
+                                <span class="news-category">益智/策略</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-card" itemscope itemtype="https://schema.org/Review">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=250&fit=crop&crop=center" alt="俄罗斯方块 评测配图">
+                        </div>
+                        <div class="news-content">
+                            <h3 itemprop="name">俄罗斯方块：永不过时的“心流制造机”</h3>
+                            <p itemprop="reviewBody">截至2025年，俄罗斯方块依旧是“心流制造机”。现代版本引入“软降/硬降”和“保留块”等设计，容错与上限同步提升。进阶路线建议先练“平堆”，再练“T-Spin”与多连消；节奏控制比贪心清行更关键。</p>
+                            <div class="news-meta">
+                                <span class="news-date">2025-09-04</span>
+                                <span class="news-category">益智/经典</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-card" itemscope itemtype="https://schema.org/Review">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop&crop=center" alt="吃豆人 评测配图">
+                        </div>
+                        <div class="news-content">
+                            <h3 itemprop="name">吃豆人：路径与风险的数学游戏</h3>
+                            <p itemprop="reviewBody">截至2025年，吃豆人仍是复古与竞技结合的模范。上限在于“路线规划与幽灵引导”。经典地图的幽灵 AI 有既定规律，能被“放风筝”。高分玩家在能量豆刷新窗口制造“收割期”，并用回头与卡位分割幽灵队形。它看似复古，其实很现代。</p>
+                            <div class="news-meta">
+                                <span class="news-date">2025-09-03</span>
+                                <span class="news-category">街机/策略</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-card" itemscope itemtype="https://schema.org/Review">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=250&fit=crop&crop=center" alt="贪吃蛇 评测配图">
+                        </div>
+                        <div class="news-content">
+                            <h3 itemprop="name">贪吃蛇：节奏管理的纯粹乐趣</h3>
+                            <p itemprop="reviewBody">截至2025年，贪吃蛇的纯粹乐趣依然来自“路线压缩”与“节奏管理”。在中后期，合理折返能减少无谓风险，保持前方视野与可转移空间。若加入加速或新规则，优先级永远是“活下去”，分数自会水到渠成。</p>
+                            <div class="news-meta">
+                                <span class="news-date">2025-09-02</span>
+                                <span class="news-category">休闲/经典</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-card" itemscope itemtype="https://schema.org/Review">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=250&fit=crop&crop=center" alt="扫雷 评测配图">
+                        </div>
+                        <div class="news-content">
+                            <h3 itemprop="name">扫雷：逻辑与概率之间的优雅平衡</h3>
+                            <p itemprop="reviewBody">截至2025年，扫雷依旧优雅：在“确定性解”与“概率抉择”之间切换。当局面进入猜雷区，高手会综合边界分布与历史点击，降低整体爆雷期望。它并不只是随机——可控空间比你想象更大。</p>
+                            <div class="news-meta">
+                                <span class="news-date">2025-09-01</span>
+                                <span class="news-category">益智/逻辑</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-card" itemscope itemtype="https://schema.org/Review">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=250&fit=crop&crop=center" alt="数独 评测配图">
+                        </div>
+                        <div class="news-content">
+                            <h3 itemprop="name">数独：从“唯一候选”到“进阶链”的思维训练</h3>
+                            <p itemprop="reviewBody">截至2025年，数独训练体系更成熟：入门靠“唯一候选”和“区块排除”，进阶是“隐性对子/三子”与“链式推导”。当你把直觉变成可复现步骤，数独就从消遣变为训练——耐心会得到回报。</p>
+                            <div class="news-meta">
+                                <span class="news-date">2025-08-31</span>
+                                <span class="news-category">益智/数字</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-card" itemscope itemtype="https://schema.org/Review">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop&crop=center" alt="Wordle 评测配图">
+                        </div>
+                        <div class="news-content">
+                            <h3 itemprop="name">Wordle：小体量里装着语言学的乐趣</h3>
+                            <p itemprop="reviewBody">截至2025年，Wordle 仍是“每日五分钟”的语言体操。成瘾点在于“有限信息的高质量反馈”。首词选择影响巨大：包含高频元音与辅音的组合能快速缩小解空间。它像晨练，短小却高效。</p>
+                            <div class="news-meta">
+                                <span class="news-date">2025-08-30</span>
+                                <span class="news-category">文字/推理</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 游戏攻略区域 -->
+        <section id="guides" class="guides">
+            <div class="container">
+                <h2 class="section-title" data-i18n="sections.guides">游戏攻略</h2>
+                <div class="guides-grid">
+                    <article class="guide-card" itemscope itemtype="https://schema.org/Article" onclick="window.location.href='guides/slither-advanced-guide.html'" style="cursor: pointer;">
+                        <div class="guide-icon">🎮</div>
+                        <h3 itemprop="headline">Slither.io 高手进阶攻略</h3>
+                        <p itemprop="description">掌握贪吃蛇大作战的核心技巧，从新手到高手的完整进阶指南</p>
+                        <div class="guide-meta">
+                            <span class="guide-category">动作游戏</span>
+                            <span class="guide-read-time">5分钟阅读</span>
+                        </div>
+                        <div class="guide-stats">
+                            <span class="stat-item">
+                                <span class="stat-icon">👀</span>
+                                <span class="stat-value">12.5万</span>
+                            </span>
+                            <span class="stat-item">
+                                <span class="stat-icon">👍</span>
+                                <span class="stat-value">2.3万</span>
+                            </span>
+                        </div>
+                        <meta itemprop="author" content="Game8.live">
+                        <meta itemprop="datePublished" content="2024-01-15">
+                        <meta itemprop="url" content="https://game8.live/guides/slither-advanced-guide.html">
+                    </article>
+
+                    <article class="guide-card" itemscope itemtype="https://schema.org/Article" onclick="window.location.href='guides/amongus-master-guide.html'" style="cursor: pointer;">
+                        <div class="guide-icon">🕵️</div>
+                        <h3 itemprop="headline">Among Us 推理大师养成记</h3>
+                        <p itemprop="description">成为最优秀的船员或冒牌货，掌握心理战和推理技巧的终极指南</p>
+                        <div class="guide-meta">
+                            <span class="guide-category">社交推理</span>
+                            <span class="guide-read-time">8分钟阅读</span>
+                        </div>
+                        <div class="guide-stats">
+                            <span class="stat-item">
+                                <span class="stat-icon">👀</span>
+                                <span class="stat-value">18.7万</span>
+                            </span>
+                            <span class="stat-item">
+                                <span class="stat-icon">👍</span>
+                                <span class="stat-value">3.1万</span>
+                            </span>
+                        </div>
+                        <meta itemprop="author" content="Game8.live">
+                        <meta itemprop="datePublished" content="2024-01-14">
+                        <meta itemprop="url" content="https://game8.live/guides/amongus-master-guide.html">
+                    </article>
+
+                    <article class="guide-card" itemscope itemtype="https://schema.org/Article" onclick="window.location.href='guides/2048-strategy-guide.html'" style="cursor: pointer;">
+                        <div class="guide-icon">🧩</div>
+                        <h3 itemprop="headline">2048 数字合并的艺术</h3>
+                        <p itemprop="description">从基础策略到高级技巧，教你如何轻松达到2048甚至更高分数</p>
+                        <div class="guide-meta">
+                            <span class="guide-category">益智游戏</span>
+                            <span class="guide-read-time">6分钟阅读</span>
+                        </div>
+                        <div class="guide-stats">
+                            <span class="stat-item">
+                                <span class="stat-icon">👀</span>
+                                <span class="stat-value">9.8万</span>
+                            </span>
+                            <span class="stat-item">
+                                <span class="stat-icon">👍</span>
+                                <span class="stat-value">1.9万</span>
+                            </span>
+                        </div>
+                        <meta itemprop="author" content="Game8.live">
+                        <meta itemprop="datePublished" content="2024-01-13">
+                        <meta itemprop="url" content="https://game8.live/guides/2048-strategy-guide.html">
+                    </article>
+
+                    <article class="guide-card" itemscope itemtype="https://schema.org/Article" onclick="window.location.href='guides/agar-strategy-guide.html'" style="cursor: pointer;">
+                        <div class="guide-icon">🎯</div>
+                        <h3 itemprop="headline">Agar.io 吞噬策略大全</h3>
+                        <p itemprop="description">从细胞到巨无霸的成长之路，掌握分裂、合并和生存的核心技巧</p>
+                        <div class="guide-meta">
+                            <span class="guide-category">策略游戏</span>
+                            <span class="guide-read-time">7分钟阅读</span>
+                        </div>
+                        <div class="guide-stats">
+                            <span class="stat-item">
+                                <span class="stat-icon">👀</span>
+                                <span class="stat-value">15.2万</span>
+                            </span>
+                            <span class="stat-item">
+                                <span class="stat-icon">👍</span>
+                                <span class="stat-value">2.7万</span>
+                            </span>
+                        </div>
+                        <meta itemprop="author" content="Game8.live">
+                        <meta itemprop="datePublished" content="2024-01-12">
+                        <meta itemprop="url" content="https://game8.live/guides/agar-strategy-guide.html">
+                    </article>
+
+                    <article class="guide-card" itemscope itemtype="https://schema.org/Article">
+                        <div class="guide-icon">🎨</div>
+                        <h3 itemprop="headline">Skribbl.io 绘画猜词技巧</h3>
+                        <p itemprop="description">提升绘画技巧和猜词能力，成为Skribbl.io的绘画大师和猜词高手</p>
+                        <div class="guide-meta">
+                            <span class="guide-category">创意游戏</span>
+                            <span class="guide-read-time">4分钟阅读</span>
+                        </div>
+                        <div class="guide-stats">
+                            <span class="stat-item">
+                                <span class="stat-icon">👀</span>
+                                <span class="stat-value">7.3万</span>
+                            </span>
+                            <span class="stat-item">
+                                <span class="stat-icon">👍</span>
+                                <span class="stat-value">1.4万</span>
+                            </span>
+                        </div>
+                        <meta itemprop="author" content="Game8.live">
+                        <meta itemprop="datePublished" content="2024-01-11">
+                        <meta itemprop="url" content="https://game8.live/guides/skribbl-drawing-guide.html">
+                    </article>
+
+                    <article class="guide-card" itemscope itemtype="https://schema.org/Article">
+                        <div class="guide-icon">🏃</div>
+                        <h3 itemprop="headline">Fall Guys 生存指南</h3>
+                        <p itemprop="description">在混乱的竞技场中脱颖而出，掌握各种迷你游戏的获胜技巧</p>
+                        <div class="guide-meta">
+                            <span class="guide-category">竞技游戏</span>
+                            <span class="guide-read-time">6分钟阅读</span>
+                        </div>
+                        <div class="guide-stats">
+                            <span class="stat-item">
+                                <span class="stat-icon">👀</span>
+                                <span class="stat-value">11.6万</span>
+                            </span>
+                            <span class="stat-item">
+                                <span class="stat-icon">👍</span>
+                                <span class="stat-value">2.1万</span>
+                            </span>
+                        </div>
+                        <meta itemprop="author" content="Game8.live">
+                        <meta itemprop="datePublished" content="2024-01-10">
+                        <meta itemprop="url" content="https://game8.live/guides/fallguys-survival-guide.html">
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Game8.live</h3>
+                    <p>提供最新最热门的在线游戏体验</p>
+                </div>
+                <div class="footer-section">
+                    <h4>游戏分类</h4>
+                    <ul>
+                        <li><a href="#action">动作游戏</a></li>
+                        <li><a href="#strategy">策略游戏</a></li>
+                        <li><a href="#puzzle">益智游戏</a></li>
+                        <li><a href="#racing">竞速游戏</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#help">使用帮助</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                        <li><a href="#privacy">隐私政策</a></li>
+                        <li><a href="#terms">服务条款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>关注我们</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">微博</a>
+                        <a href="#" class="social-link">微信</a>
+                        <a href="#" class="social-link">QQ群</a>
+                        <a href="admin-login.html" class="social-link">管理后台</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Game8.live. 保留所有权利。</p>
             </div>
         </div>
     </footer>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5CW6Y56PDG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-5CW6Y56PDG');
-</script>
+    <!-- 游戏模态框 -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">游戏标题</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="game-iframe-container">
+                    <iframe id="gameIframe" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="game-details">
+                    <div class="game-description">
+                        <h3>游戏介绍</h3>
+                        <p id="gameDescription">游戏描述内容</p>
+                    </div>
+                    <div class="game-controls">
+                        <h3>操作方法</h3>
+                        <ul id="gameControls">
+                            <li>使用方向键或WASD控制移动</li>
+                            <li>空格键进行特殊操作</li>
+                        </ul>
+                    </div>
+                    <div class="game-tips">
+                        <h3>游戏攻略</h3>
+                        <ul id="gameTips">
+                            <li>保持耐心，慢慢积累经验</li>
+                            <li>观察其他玩家的策略</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

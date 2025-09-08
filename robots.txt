@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# 允许搜索引擎抓取所有页面
+Allow: /index.html
+Allow: /game-detail.html
+Allow: /styles.css
+Allow: /script.js
+
+# 禁止抓取的文件
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.log$
+
+# 网站地图位置
+Sitemap: https://game8.live/sitemap.xml
+
+# 爬取延迟（秒）
+Crawl-delay: 1

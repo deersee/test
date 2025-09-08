@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <!-- 主页 -->
+    <url>
+        <loc>https://game8.live/</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://game8.live/?lang=zh-CN"/>
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://game8.live/?lang=en-US"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://game8.live/"/>
+    </url>
+    
+    <!-- 游戏详情页 -->
+    <url>
+        <loc>https://game8.live/game-detail.html?game=slither</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://game8.live/game-detail.html?game=slither&amp;lang=zh-CN"/>
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://game8.live/game-detail.html?game=slither&amp;lang=en-US"/>
+    </url>
+    <url>
+        <loc>https://game8.live/game-detail.html?game=agar</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://game8.live/game-detail.html?game=agar&amp;lang=zh-CN"/>
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://game8.live/game-detail.html?game=agar&amp;lang=en-US"/>
+    </url>
+    <url>
+        <loc>https://game8.live/game-detail.html?game=2048</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://game8.live/game-detail.html?game=2048&amp;lang=zh-CN"/>
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://game8.live/game-detail.html?game=2048&amp;lang=en-US"/>
+    </url>
+    <url>
+        <loc>https://game8.live/game-detail.html?game=tetris</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://game8.live/game-detail.html?game=tetris&amp;lang=zh-CN"/>
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://game8.live/game-detail.html?game=tetris&amp;lang=en-US"/>
+    </url>
+    <url>
+        <loc>https://game8.live/game-detail.html?game=pacman</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://game8.live/game-detail.html?game=pacman&amp;lang=zh-CN"/>
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://game8.live/game-detail.html?game=pacman&amp;lang=en-US"/>
+    </url>
+    <url>
+        <loc>https://game8.live/game-detail.html?game=snake</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://game8.live/game-detail.html?game=snake&amp;lang=zh-CN"/>
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://game8.live/game-detail.html?game=snake&amp;lang=en-US"/>
+    </url>
+    <url>
+        <loc>https://game8.live/game-detail.html?game=minesweeper</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://game8.live/game-detail.html?game=minesweeper&amp;lang=zh-CN"/>
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://game8.live/game-detail.html?game=minesweeper&amp;lang=en-US"/>
+    </url>
+    <url>
+        <loc>https://game8.live/game-detail.html?game=sudoku</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://game8.live/game-detail.html?game=sudoku&amp;lang=zh-CN"/>
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://game8.live/game-detail.html?game=sudoku&amp;lang=en-US"/>
+    </url>
+    <url>
+        <loc>https://game8.live/game-detail.html?game=wordle</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://game8.live/game-detail.html?game=wordle&amp;lang=zh-CN"/>
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://game8.live/game-detail.html?game=wordle&amp;lang=en-US"/>
+    </url>
+    <url>
+        <loc>https://game8.live/game-detail.html?game=flappy</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://game8.live/game-detail.html?game=flappy&amp;lang=zh-CN"/>
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://game8.live/game-detail.html?game=flappy&amp;lang=en-US"/>
+    </url>
+</urlset>
