@@ -8,9 +8,7 @@
     <meta name="author" content="Game8.live">
     
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     
     <style>
         * {
@@ -769,8 +767,19 @@
                         controls: ['WASD移动，鼠标瞄准/施放'],
                         tips: ['先活再刚', '观察圈边刷新', '技能连段致胜'],
                         stats: { playCount: 180000, likes: 15000, rating: 4.0 }
+                    },
+                    mgsdelta: {
+                        title: 'Metal Gear Solid Delta: Snake Eater',
+                        description: '潜入与生存为核心的经典重制版内容聚合：完整流程、Boss 指南、武器与伪装、收集要素及互动地图。',
+                        category: 'adventure',
+                        image: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=400&h=300&fit=crop&crop=center',
+                        iframe: 'https://game8.co/games/Metal-Gear-Solid-Delta-Snake-Eater',
+                        tags: ['潜入', '动作冒险', '重制版', '攻略'],
+                        controls: ['按平台键鼠/手柄操作；以潜入与CQC为核心'],
+                        tips: ['优先潜行降警戒', '灵活更换伪装', 'Boss战前补给与存档', '善用互动地图与收集清单'],
+                        stats: { playCount: 120000, likes: 9000, rating: 4.6 }
                     }
-            };
+                };
 
             // 从localStorage加载数据，如果没有或过少则使用默认数据
             const savedData = localStorage.getItem('adminGamesData');

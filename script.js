@@ -983,7 +983,8 @@ images.forEach(img => imageObserver.observe(img));
 // 多语言功能
 async function loadTranslations(language) {
     try {
-        const response = await fetch(`lang/${language}.json`);
+        const response = await fetch(`lang/${language}.json`, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
         translations[language] = await response.json();
     } catch (error) {
         console.error(`Failed to load translations for ${language}:`, error);
@@ -1061,15 +1062,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     // 加载多语言支持
     const savedLanguage = localStorage.getItem('preferredLanguage') || 'zh-CN';
-    await Promise.all([
-        loadTranslations('zh-CN'),
-        loadTranslations('en-US'),
-        loadTranslations('de-DE'),
-        loadTranslations('fr-FR'),
-        loadTranslations('it-IT'),
-        loadTranslations('ja-JP'),
-        loadTranslations('ko-KR')
-    ]);
+    // 仅加载当前语言，避免404导致的报错噪音
+    await loadTranslations(savedLanguage);
     
     // 设置初始语言
     changeLanguage(savedLanguage);
@@ -1129,8 +1123,8 @@ function initSearch() {
 
 // 图片加载失败时的占位处理
 function initImageFallbacks() {
-    const fallbackSmall = 'https://via.placeholder.com/400x300/CCCCCC/555555?text=Image+Unavailable';
-    const fallbackHero = 'https://via.placeholder.com/600x400/CCCCCC/555555?text=Preview';
+    const fallbackSmall = 'images/fallback-400x300.png';
+    const fallbackHero = 'images/fallback-600x400.png';
 
     // 游戏卡片与新闻卡片图片
     document.querySelectorAll('.game-image img, .news-image img').forEach(img => {
@@ -1142,14 +1136,14 @@ function initImageFallbacks() {
     });
 
     // 英雄区域预览图
-    const heroImg = document.querySelector('.game-preview img');
-    if (heroImg) {
-        heroImg.addEventListener('error', () => {
-            if (heroImg.dataset.fallbackApplied) return;
-            heroImg.src = fallbackHero;
-            heroImg.dataset.fallbackApplied = '1';
+    document.querySelectorAll('.thumb-grid img').forEach(img => {
+        img.addEventListener('error', () => {
+            if (img.dataset.fallbackApplied) return;
+            const perImgFallback = img.dataset.srcFallback || fallbackHero;
+            img.src = perImgFallback;
+            img.dataset.fallbackApplied = '1';
         }, { once: true });
-    }
+    });
 }
 
 // 根据 gamesData 同步首页卡片图片，确保与上传游戏相关
